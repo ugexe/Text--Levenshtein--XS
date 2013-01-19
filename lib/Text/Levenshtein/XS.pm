@@ -1,10 +1,9 @@
 package Text::Levenshtein::XS;
 use 5.008_008;
-
 require Exporter;
-*import = \&Exporter::import;
 
-$Text::Levenshtein::XS::VERSION = '0.1';
+@Text::Levenshtein::XS::ISA = qw/Exporter/;
+$Text::Levenshtein::XS::VERSION = '0.2';
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
 
 eval {
@@ -22,7 +21,7 @@ eval {
 
 sub distance {
     # shift shift is faster than $_[0] $_[1]
-    return Text::Levenshtein::XS::xs_distance( [unpack('U*', shift)], [unpack('U*',shift)]);
+    return Text::Levenshtein::XS::xs_distance( [unpack('U*', shift)], [unpack('U*',shift)] );
 }
 
 1;
@@ -68,8 +67,6 @@ Wrapper function to take the edit distance between a source and target string us
 =head1 NOTES
 
 Drop in replacement for L<Text::LevenshteinXS>
-
-=back
 
 =head1 SEE ALSO
 

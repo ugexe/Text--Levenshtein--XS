@@ -3,10 +3,12 @@
 #include "perl.h"
 #include "XSUB.h"
 
-/* use the system malloc, free, and alloca */
+#define MAX(a,b) (((a)>(b))?(a):(b))
+#define MIN(a,b) (((a)<(b))?(a):(b))
+
+/* use the system malloc and free */
 #undef malloc
 #undef free
-#undef alloca
 
 MODULE = Text::Levenshtein::XS    PACKAGE = Text::Levenshtein::XS
 
@@ -22,32 +24,35 @@ PPCODE:
   PUSHs(TARG);
   PUTBACK;
   {
-  unsigned int i,j,edits;
+  unsigned int i,j,edits,retval;
   unsigned int lenSource = av_len(arraySource)+2;
   unsigned int lenTarget = av_len(arrayTarget)+2;
-  unsigned int retval; 
 
   if(lenSource > 1 && lenTarget > 1) {
     unsigned int srctgt_max = MAX(lenSource,lenTarget);
-    {
-    int * arrTarget = alloca(sizeof(int) * lenTarget );
-    int * arrSource = alloca(sizeof(int) * lenSource );
+    unsigned int * arrTarget = alloca(sizeof(int) * lenTarget );
+    unsigned int * arrSource = alloca(sizeof(int) * lenSource );
     unsigned int *scores = malloc( (lenSource) * (lenTarget) * sizeof(unsigned int) );
+    SV* elem01 = sv_2mortal(av_shift(arraySource));
+    SV* elem02 = sv_2mortal(av_shift(arrayTarget));
 
-    for (i=0; i < lenSource-1; i++) {
+    arrSource[ 0 ] = (int)SvIV((SV *)elem01);
+    arrTarget[ 0 ] = (int)SvIV((SV *)elem02);
+    scores[0] = 0;
+
+    for (i=1; i < lenSource; i++) {
           SV* elem = sv_2mortal(av_shift(arraySource));
           arrSource[ i ] = (int)SvIV((SV *)elem);
           scores[i] = i;
-    }
-    for (i=0; i < lenTarget-1; i++) {
-          SV* elem2 = sv_2mortal(av_shift(arrayTarget));
-          arrTarget[ i ] = (int)SvIV((SV *)elem2);
 
-          scores[i*lenSource] = i;
-    }
-
-    for (i=1; i < lenSource; i++) {
           for(j=1; j < lenTarget; j++) {
+              if(i == 1) { 
+                  SV* elem2 = sv_2mortal(av_shift(arrayTarget));
+                  arrTarget[ j ] = (int)SvIV((SV *)elem2);
+
+                  scores[j*lenSource] = j;
+              }
+
               if(arrSource[i-1] == arrTarget[j-1]) 
                  edits = 0;
               else
@@ -61,7 +66,6 @@ PPCODE:
 
     retval = scores[lenSource*lenTarget-1];
     free(scores);
-    }
   }
   else {
     /* handle a blank string */

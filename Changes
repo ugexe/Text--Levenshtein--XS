@@ -1,5 +1,9 @@
 Revision history for Perl module Text::Levenshtein::XS
 
+0.2 Fri Jan 18 23:22:31 2013
+	- MIN/MAX macros added
+	- loops combined
+
 0.1 Thu Jan 17 01:20:51 2013
 	- Initial release. 
 
