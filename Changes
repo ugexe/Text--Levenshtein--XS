@@ -1,5 +1,10 @@
 Revision history for Perl module Text::Levenshtein::XS
 
+0.3 Sun Jan 20 23:38:11 2013
+	- alloca changed to malloc
+       - associated memory managment
+       - ppm should build now
+
 0.2 Fri Jan 18 23:22:31 2013
 	- MIN/MAX macros added
 	- loops combined
