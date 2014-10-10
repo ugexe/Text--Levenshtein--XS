@@ -11,3 +11,4 @@ MYMETA.*
 *.tar
 *.gz
 MANIFEST$
+Makefile.old

@@ -1,4 +1,5 @@
 #define PERL_NO_GET_CONTEXT
+#define NO_XSLOCKS
 #include "EXTERN.h"
 #include "perl.h"
 #include "XSUB.h"
@@ -14,15 +15,11 @@ MODULE = Text::Levenshtein::XS    PACKAGE = Text::Levenshtein::XS
 
 PROTOTYPES: ENABLE
 
-void
+int
 xs_distance (arraySource, arrayTarget)
   AV *    arraySource
   AV *    arrayTarget
-PPCODE:
-  {
-    dXSTARG;
-    PUSHs(TARG);
-    PUTBACK;
+CODE:
   {
     unsigned int i,j,edits,retval,lenSource,lenTarget;
     lenSource = av_len(arraySource)+2;
@@ -63,16 +60,15 @@ PPCODE:
             }
       }
 
-      retval = scores[lenSource*lenTarget-1];
+      RETVAL = scores[lenSource*lenTarget-1];
       free(scores);
       free(arrSource);
       free(arrTarget);
     }
     else {
       /* handle a blank string */
-      retval = (lenSource>lenTarget)?--lenSource:--lenTarget;
+      RETVAL = (lenSource>lenTarget)?--lenSource:--lenTarget;
     }
-  sv_setiv_mg(TARG, retval);
-  return; /*we did a PUTBACK earlier, do not let xsubpp's PUTBACK run */
   }
-}
+OUTPUT:
+  RETVAL
