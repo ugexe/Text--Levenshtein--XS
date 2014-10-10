@@ -28,7 +28,10 @@ install:
 before_script:
     - coverage-setup
 script:
-    - prove -l -v -j$((SYSTEM_CORES + 1)) $(test-dirs)
+script:
+    - perl Makefile.PL
+    - make
+    - make test
 after_success:
     - coverage-report
 notifications:
