@@ -28,7 +28,6 @@ install:
 before_script:
     - coverage-setup
 script:
-script:
     - perl Makefile.PL
     - make
     - make test
