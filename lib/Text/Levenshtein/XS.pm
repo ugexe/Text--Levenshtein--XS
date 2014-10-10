@@ -19,8 +19,6 @@ eval {
 };
 
 
-
-
 sub distance {
     return Text::Levenshtein::XS::xs_distance( [unpack('U*', defined $_[0]?$_[0]:'')], [unpack('U*', defined $_[1]?$_[1]:'')] );
 }
