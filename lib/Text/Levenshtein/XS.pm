@@ -86,7 +86,7 @@ Drop in replacement for L<Text::LevenshteinXS>
 
 Please report bugs to:
 
-L<https://rt.cpan.org/Public/Dist/Display.html?Name=Text-Levenshtein-XS>
+L<https://github.com/ugexe/Text--Levenshtein--XS/issues>
 
 =head1 AUTHOR
 

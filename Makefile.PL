@@ -5,7 +5,7 @@ use ExtUtils::MakeMaker;
 
 my $pm =   'lib/Text/Levenshtein/XS.pm';
 my $repo = 'https://github.com/ugexe/Text--Levenshtein--XS';
-my $bugs = 'https://rt.cpan.org/Public/Dist/Display.html?Name=Text-Levenshtein-XS';
+my $bugs = 'https://github.com/ugexe/Text--Levenshtein--XS/issues';
 
 WriteMakefile ( 
     NAME => 'Text::Levenshtein::XS',
