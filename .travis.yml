@@ -1,0 +1,39 @@
+language: perl
+perl:
+    - "5.8"
+    - "5.8-thr"
+    - "5.8.8"
+    - "5.10"
+    - "5.18"
+    - "5.18-thr"
+    - "5.20"
+    - "blead"
+matrix:
+  include:
+    - perl: 5.18
+      env: COVERAGE=1           # enables coverage+coveralls reporting
+  allow_failures:
+    - perl: "blead"             # ignore failures for blead perl
+before_install:
+    - git clone git://github.com/travis-perl/helpers.git ~/travis-perl-helpers
+    - source ~/travis-perl-helpers/init
+    - build-perl
+    - perl -V
+    - build-dist
+    - cd $BUILD_DIR             # $BUILD_DIR is set by the build-dist command
+    - cpan-install --toolchain
+install:
+    - cpan-install --deps       # installs prereqs, including recommends
+    - cpan-install --coverage   # installs converage prereqs, if enabled
+before_script:
+    - coverage-setup
+script:
+    - prove -l -v -j$((SYSTEM_CORES + 1)) $(test-dirs)
+after_success:
+    - coverage-report
+notifications:
+    recipients:
+    - ugexe@cpan.org
+    email:
+        on_success: change
+        on_failure: always
