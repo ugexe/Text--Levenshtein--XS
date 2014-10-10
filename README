@@ -2,21 +2,21 @@ NAME
     Text::Levenshtein::XS - XS Levenshtein edit distance.
 
 SYNOPSIS
-            use Text::Levenshtein::XS qw/distance/;
+        use Text::Levenshtein::XS qw/distance/;
 
-            print distance('Neil','Niel');
-            # prints 2
+        print distance('Neil','Niel');
+        # prints 2
 
 DESCRIPTION
     Returns the number of edits (insert,delete,substitute) required to turn
     the source string into the target string. XS implementation (requires a
     C compiler). Works correctly with utf8.
 
-            use Text::Levenshtein::XS qw/distance/;
-            use utf8;
+        use Text::Levenshtein::XS qw/distance/;
+        use utf8;
 
-            distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'), 
-            # prints 2
+        distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'), 
+        # prints 2
 
 METHODS
   distance
@@ -28,26 +28,23 @@ METHODS
     Wrapper function to take the edit distance between a source and target
     string using XS algorithm implementation.
 
-            use Text::Levenshtein::XS qw/distance/;
-            print distance('Neil','Niel');
-            # prints 2
+        use Text::Levenshtein::XS qw/distance/;
+        print distance('Neil','Niel');
+        # prints 2
 
 NOTES
     Drop in replacement for Text::LevenshteinXS
 
 SEE ALSO
-    *   Text::Levenshtein::Damerau
-
-    *   Text::Levenshtein::Damerau::PP
-
-    *   Text::Levenshtein::Damerau::XS
-
-    *   Text::Fuzzy
+    * Text::Levenshtein::Damerau
+    * Text::Levenshtein::Damerau::PP
+    * Text::Levenshtein::Damerau::XS
+    * Text::Fuzzy
 
 BUGS
     Please report bugs to:
 
-    <https://rt.cpan.org/Public/Dist/Display.html?Name=Text-Levenshtein-XS>
+    https://github.com/ugexe/Text--Levenshtein--XS/issues
 
 AUTHOR
     Nick Logan <ugexe@cpan.com>
@@ -55,11 +52,4 @@ AUTHOR
 LICENSE AND COPYRIGHT
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
-
-POD ERRORS
-    Hey! The above document had some coding errors, which are explained
-    below:
-
-    Around line 72:
-        =back without =over
 
