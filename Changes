@@ -1,16 +1,20 @@
 Revision history for Perl module Text::Levenshtein::XS
 
-0.3 Sun Jan 20 23:38:11 2013
-	- alloca changed to malloc
+0.30_01 Fri Oct 10 15:03:02 2014
+    - https://rt.cpan.org/Public/Bug/Display.html?id=99413
+        - Not sure the source of this bug. Just putting up to test.
+
+0.30 Sun Jan 20 23:38:11 2013
+    - alloca changed to malloc
        - associated memory managment
        - ppm should build now
 
-0.2 Fri Jan 18 23:22:31 2013
-	- MIN/MAX macros added
-	- loops combined
+0.20 Fri Jan 18 23:22:31 2013
+    - MIN/MAX macros added
+    - loops combined
 
-0.1 Thu Jan 17 01:20:51 2013
-	- Initial release. 
+0.10 Thu Jan 17 01:20:51 2013
+    - Initial release. 
 
 
 
