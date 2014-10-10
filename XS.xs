@@ -21,7 +21,7 @@ xs_distance (arraySource, arrayTarget)
   AV *    arrayTarget
 CODE:
   {
-    unsigned int i,j,edits,retval,lenSource,lenTarget;
+    unsigned int i,j,edits,lenSource,lenTarget;
     lenSource = av_len(arraySource)+2;
     lenTarget = av_len(arrayTarget)+2;
 
