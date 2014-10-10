@@ -3,7 +3,7 @@ use 5.008_008;
 require Exporter;
 
 @Text::Levenshtein::XS::ISA = qw/Exporter/;
-$Text::Levenshtein::XS::VERSION = '0.30_02';
+$Text::Levenshtein::XS::VERSION = '0.30_03';
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
 
 eval {
