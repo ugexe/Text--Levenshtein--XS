@@ -1,7 +1,6 @@
 package Text::Levenshtein::XS;
 use 5.008;
 use strict;
-use Carp;
 use warnings FATAL => 'all';
 require Exporter;
 
