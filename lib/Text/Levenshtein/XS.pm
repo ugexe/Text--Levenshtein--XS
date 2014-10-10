@@ -1,11 +1,12 @@
 package Text::Levenshtein::XS;
 use 5.008;
 use strict;
+use Carp;
 use warnings FATAL => 'all';
 require Exporter;
 
-@Text::Levenshtein::XS::ISA = qw/Exporter/;
-$Text::Levenshtein::XS::VERSION = '0.30_03';
+@Text::Levenshtein::XS::ISA       = qw/Exporter/;
+$Text::Levenshtein::XS::VERSION   = qw/0.30_04/;
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
 
 eval {

@@ -2,7 +2,7 @@
 use 5.008;
 use strict;
 use warnings FATAL => 'all';
-use Test::More tests => 22;
+use Test::More;
 use Text::Levenshtein::XS qw/distance/;
 
 is( distance('four','for'),             1, 'test distance insertion');
@@ -42,7 +42,7 @@ is( distance("more","cowbell"),         5,"Correct distance more cowbell");
 #is_deeply(\@foo,\@bar,"Array test: Correct distances foo four foo bar");
 
 
-
+done_testing();
 1;
 
 
