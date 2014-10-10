@@ -34,20 +34,20 @@ Text::Levenshtein::XS - XS Levenshtein edit distance.
 
 =head1 SYNOPSIS
 
-	use Text::Levenshtein::XS qw/distance/;
+    use Text::Levenshtein::XS qw/distance/;
 
-	print distance('Neil','Niel');
-	# prints 2
+    print distance('Neil','Niel');
+    # prints 2
 
 =head1 DESCRIPTION
 
 Returns the number of edits (insert,delete,substitute) required to turn the source string into the target string. XS implementation (requires a C compiler). Works correctly with utf8.
 
-	use Text::Levenshtein::XS qw/distance/;
-	use utf8;
+    use Text::Levenshtein::XS qw/distance/;
+    use utf8;
 
-	distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'), 
-	# prints 2
+    distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'), 
+    # prints 2
 
 =head1 METHODS
 
@@ -60,9 +60,9 @@ Returns: int that represents the edit distance between the two argument. Stops c
 
 Wrapper function to take the edit distance between a source and target string using XS algorithm implementation.
 
-	use Text::Levenshtein::XS qw/distance/;
-	print distance('Neil','Niel');
-	# prints 2
+    use Text::Levenshtein::XS qw/distance/;
+    print distance('Neil','Niel');
+    # prints 2
 
 =head1 NOTES
 
