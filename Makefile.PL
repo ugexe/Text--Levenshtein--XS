@@ -9,11 +9,12 @@ my $bugs = 'https://github.com/ugexe/Text--Levenshtein--XS/issues';
 
 WriteMakefile ( 
     NAME => 'Text::Levenshtein::XS',
-    VERSION_FROM => $pm,
-    ABSTRACT_FROM => $pm,
-    AUTHOR => 'Nick Logan <ugexe@cpan.org>',
-    LICENSE => 'perl',
-    MIN_PERL_VERSION => '5.008008',
+    VERSION_FROM        => $pm,
+    ABSTRACT_FROM       => $pm,
+    AUTHOR              => 'Nick Logan <ugexe@cpan.org>',
+    LICENSE             => 'perl',
+    MIN_PERL_VERSION    => '5.008008',
+    depend              => { '$(FIRST_MAKEFILE)' => '$(VERSION_FROM)' },
     PREREQ_PM => {
     },
     META_MERGE => {
@@ -22,7 +23,6 @@ WriteMakefile (
             bugtracker => "$bugs",
         },
     },
-    depend => { '$(FIRST_MAKEFILE)' => '$(VERSION_FROM)' },
 );
 
 

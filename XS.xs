@@ -58,8 +58,8 @@ PPCODE:
                    edits = 1;
 
                 scores[j*lenSource+i] = MIN(scores[(j-1)*lenSource+i]+1, 
-  						MIN(scores[j*lenSource+i-1]+1, scores[(j-1)*lenSource+i-1]+edits)
-  					   );
+  						    MIN(scores[j*lenSource+i-1]+1, scores[(j-1)*lenSource+i-1]+edits)
+  					    );
             }
       }
 

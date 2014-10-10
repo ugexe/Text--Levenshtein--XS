@@ -14,14 +14,16 @@ is( distance('','four'),                4, 'test distance source empty');
 is( distance('',''),                    0, 'test distance source and target empty');
 is( distance('111','11'),               1, 'test distance numbers');
 
-# Test some utf8
-use utf8;
-binmode STDOUT, ":encoding(utf8)";
-is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡ'),            0, 'test distance matching (utf8)');
-is( distance('ⓕⓞⓤⓡ','ⓕⓞⓡ'),             1, 'test distance insertion (utf8)');
-is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡⓣⓗ'),          2, 'test distance deletion (utf8)');
-is( distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'),            2, 'test distance (no) transposition (utf8)');
-is( distance('ⓕⓞⓤⓡ','ⓕⓧⓧⓡ'),            2, 'test distance substitution (utf8)');
+{
+    # Test some utf8
+    use utf8;
+    binmode STDOUT, ":encoding(utf8)";
+    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡ'),            0, 'test distance matching (utf8)');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓡ'),             1, 'test distance insertion (utf8)');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡⓣⓗ'),          2, 'test distance deletion (utf8)');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'),            2, 'test distance (no) transposition (utf8)');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓧⓧⓡ'),            2, 'test distance substitution (utf8)');
+}
 
 # Test Text::LevenshteinXS's tests for compatability
 is( distance("foo","four"),             2,"Correct distance foo four");
