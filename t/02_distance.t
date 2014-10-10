@@ -1,5 +1,7 @@
+#!perl -T
+use 5.008;
 use strict;
-use warnings;
+use warnings FATAL => 'all';
 use Test::More tests => 22;
 use Text::Levenshtein::XS qw/distance/;
 
@@ -18,11 +20,11 @@ is( distance('111','11'),               1, 'test distance numbers');
     # Test some utf8
     use utf8;
     binmode STDOUT, ":encoding(utf8)";
-    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡ'),            0, 'test distance matching (utf8)');
-    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓡ'),             1, 'test distance insertion (utf8)');
-    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡⓣⓗ'),          2, 'test distance deletion (utf8)');
-    is( distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'),            2, 'test distance (no) transposition (utf8)');
-    is( distance('ⓕⓞⓤⓡ','ⓕⓧⓧⓡ'),            2, 'test distance substitution (utf8)');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡ'),        0, 'test distance matching (utf8)');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓡ'),         1, 'test distance insertion (utf8)');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡⓣⓗ'),      2, 'test distance deletion (utf8)');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'),        2, 'test distance (no) transposition (utf8)');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓧⓧⓡ'),        2, 'test distance substitution (utf8)');
 }
 
 # Test Text::LevenshteinXS's tests for compatability
@@ -38,3 +40,11 @@ is( distance("more","cowbell"),         5,"Correct distance more cowbell");
 #my @foo = distance("foo","four","foo","bar");
 #my @bar = (2,0,3);
 #is_deeply(\@foo,\@bar,"Array test: Correct distances foo four foo bar");
+
+
+
+1;
+
+
+
+__END__

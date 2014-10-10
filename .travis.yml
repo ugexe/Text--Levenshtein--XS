@@ -30,7 +30,7 @@ before_script:
 script:
     - perl Makefile.PL
     - make
-    - make test
+    - prove -b -v -j$((SYSTEM_CORES + 1)) $(test-dirs)
 after_success:
     - coverage-report
 notifications:

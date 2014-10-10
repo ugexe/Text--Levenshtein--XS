@@ -1,5 +1,7 @@
 package Text::Levenshtein::XS;
-use 5.008_008;
+use 5.008;
+use strict;
+use warnings FATAL => 'all';
 require Exporter;
 
 @Text::Levenshtein::XS::ISA = qw/Exporter/;
@@ -30,6 +32,7 @@ sub distance {
 
 
 __END__
+
 
 
 =encoding utf8
