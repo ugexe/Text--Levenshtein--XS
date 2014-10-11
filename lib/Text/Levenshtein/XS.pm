@@ -5,7 +5,7 @@ use warnings FATAL => 'all';
 require Exporter;
 
 @Text::Levenshtein::XS::ISA       = qw/Exporter/;
-$Text::Levenshtein::XS::VERSION   = qw/0.31/;
+$Text::Levenshtein::XS::VERSION   = qw/0.40/;
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
 
 eval {
