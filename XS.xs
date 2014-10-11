@@ -35,7 +35,7 @@ CODE:
             md = (md == 0) ? MAX(lenSource,lenTarget) : md;
 
             /* if string length difference > max_distance then return undef */
-            if (((lenSource > lenTarget) ? (lenSource - lenTarget) : (lenTarget - lenSource)) > md)
+            if ((MAX(lenSource , lenTarget) - MIN(lenSource, lenTarget)) > md)
                 XSRETURN_UNDEF;
 
             Newxz(s,  (lenSource + 1), unsigned int);
