@@ -18,6 +18,27 @@ subtest 'distance' => sub {
     is( distance('111','11'),               1, 'test distance numbers');
 };
 
+subtest 'distance using a max distance' => sub {
+    is( distance('xxx','hhh',  3),          3,      'test distance == maxdistance');
+    is( distance('xxx','hhhh', 3),          undef,  'test distance > maxdistance');
+    is( distance('xxx','hhhh', 5),          4,      'test distance < maxdistance');
+    is( distance('xxx','hhhh', 0),          4,      'test maxdistance == 0');
+    is( distance('xxx','hhhh', undef),      4,      'test maxdistance == undef');
+    is( distance('xxx','hxhh', 2),          undef,  'test distance > maxdistance');
+    is( distance('abcd','efgh', 1),         undef,  'test distance > maxdistance');
+    is( distance('abcd','efgh', 0),         4,      'test maxdistance == 0');
+    is( distance('a' x 101,'a', 200),       100,    'test large distance > large maxdistance');
+    is( distance('abcd' x 100,'a', 1),      undef,  'test large distance > maxdistance');
+    is( distance('abcd','', 1),             undef,  'test distance > maxdistance with blank target');
+    is( distance('abcd','', 4),             4,      'test maxdistance == length(source) with blank target');
+    is( distance('','abcd', 1),             undef,  'test distance > maxdistance with blank source');
+    is( distance('','abcd', 4),             4,      'test maxdistance == length(target) with blank source');
+    is( distance('abcdxx','xx', 1),         undef,  'test distance > maxdistance with length difference > max distance; longer source');
+    is( distance('abcdxx','xx', 4),         4,      'test maxdistance == length difference between source and target; longer source');
+    is( distance('xx','abcdxx', 1),         undef,  'test distance > maxdistance with length difference > max distance; longer target');
+    is( distance('xx','abcdxx', 4),         4,      'test maxdistance == length difference between source and target; longer target');
+};
+
 subtest 'utf8' => sub {
     use utf8;
     binmode STDOUT, ":encoding(utf8)";
