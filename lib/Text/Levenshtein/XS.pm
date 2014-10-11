@@ -1,9 +1,11 @@
 package Text::Levenshtein::XS;
-use 5.008_008;
+use 5.008;
+use strict;
+use warnings FATAL => 'all';
 require Exporter;
 
-@Text::Levenshtein::XS::ISA = qw/Exporter/;
-$Text::Levenshtein::XS::VERSION = '0.3';
+@Text::Levenshtein::XS::ISA       = qw/Exporter/;
+$Text::Levenshtein::XS::VERSION   = qw/0.31/;
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
 
 eval {
@@ -17,14 +19,19 @@ eval {
 };
 
 
-
-
 sub distance {
-    # shift shift is faster than $_[0] $_[1]
-    return Text::Levenshtein::XS::xs_distance( [unpack('U*', shift)], [unpack('U*',shift)] );
+    return Text::Levenshtein::XS::xs_distance( [unpack('U*', shift)], [unpack('U*', shift)] );
 }
 
+
+
 1;
+
+
+
+__END__
+
+
 
 =encoding utf8
 
@@ -34,20 +41,20 @@ Text::Levenshtein::XS - XS Levenshtein edit distance.
 
 =head1 SYNOPSIS
 
-	use Text::Levenshtein::XS qw/distance/;
+    use Text::Levenshtein::XS qw/distance/;
 
-	print distance('Neil','Niel');
-	# prints 2
+    print distance('Neil','Niel');
+    # prints 2
 
 =head1 DESCRIPTION
 
 Returns the number of edits (insert,delete,substitute) required to turn the source string into the target string. XS implementation (requires a C compiler). Works correctly with utf8.
 
-	use Text::Levenshtein::XS qw/distance/;
-	use utf8;
+    use Text::Levenshtein::XS qw/distance/;
+    use utf8;
 
-	distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'), 
-	# prints 2
+    distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'), 
+    # prints 2
 
 =head1 METHODS
 
@@ -60,9 +67,9 @@ Returns: int that represents the edit distance between the two argument. Stops c
 
 Wrapper function to take the edit distance between a source and target string using XS algorithm implementation.
 
-	use Text::Levenshtein::XS qw/distance/;
-	print distance('Neil','Niel');
-	# prints 2
+    use Text::Levenshtein::XS qw/distance/;
+    print distance('Neil','Niel');
+    # prints 2
 
 =head1 NOTES
 
@@ -86,7 +93,7 @@ Drop in replacement for L<Text::LevenshteinXS>
 
 Please report bugs to:
 
-L<https://rt.cpan.org/Public/Dist/Display.html?Name=Text-Levenshtein-XS>
+L<https://github.com/ugexe/Text--Levenshtein--XS/issues>
 
 =head1 AUTHOR
 
