@@ -19,62 +19,54 @@ int
 xs_distance (arraySource, arrayTarget)
   AV *    arraySource
   AV *    arrayTarget
-PPCODE:
+CODE:
   {
-    dXSTARG;
-    PUSHs(TARG);
-    PUTBACK;
-    {
-      unsigned int i,j,edits,retval,lenSource,lenTarget;
-      lenSource = av_len(arraySource)+1;
-      lenTarget = av_len(arrayTarget)+1;
+    unsigned int i,j,edits,lenSource,lenTarget;
+    lenSource = av_len(arraySource)+1;
+    lenTarget = av_len(arrayTarget)+1;
 
-      if(lenSource > 1 && lenTarget > 1) {
-        unsigned int srctgt_max = MAX(lenSource,lenTarget);
-        unsigned int * arrTarget = malloc(sizeof(int) * lenTarget );
-        unsigned int * arrSource = malloc(sizeof(int) * lenSource );
-        unsigned int *scores = malloc( (lenSource) * (lenTarget) * sizeof(unsigned int) );
-        SV* elem01 = sv_2mortal(av_shift(arraySource));
-        SV* elem02 = sv_2mortal(av_shift(arrayTarget));
-        arrSource[ 0 ] = (int)SvIV((SV *)elem01);
-        arrTarget[ 0 ] = (int)SvIV((SV *)elem02);
-        scores[0] = 0;
+    if(lenSource > 0 && lenTarget > 0) {
+      unsigned int * s  = malloc(sizeof(int) * (lenSource + 1));
+      unsigned int * t  = malloc(sizeof(int) * (lenTarget + 1));
+      unsigned int * v0 = malloc(sizeof(int) * (lenTarget + 1));
+      unsigned int * v1 = malloc(sizeof(int) * (lenTarget + 1));
+      SV * elem;
 
-        for (i=1; i < lenSource; i++) {
-              SV* elem1 = sv_2mortal(av_shift(arraySource));
-              arrSource[ i ] = (int)SvIV((SV *)elem1);
-              scores[i] = i;
+      for (i=0; i < (lenTarget + 1); i++) {
+          v0[i] = i;
+      }
 
-              for(j=1; j < lenTarget; j++) {
-                  if(i == 1) { 
-                      SV* elem2 = sv_2mortal(av_shift(arrayTarget));
-                      arrTarget[ j ] = (int)SvIV((SV *)elem2);
+      for (i=0; i < lenSource; i++) {
+          elem = sv_2mortal(av_shift(arraySource));
+          s[i] = (int)SvIV((SV *)elem);
 
-                      scores[j*lenSource] = j;
-                  }
+          v1[0] = i + 1;
 
-                  if(arrSource[i-1] == arrTarget[j-1]) 
-                     edits = 0;
-                  else
-                     edits = 1;
-
-                  scores[j*lenSource+i] = MIN(scores[(j-1)*lenSource+i]+1, 
-    						    MIN(scores[j*lenSource+i-1]+1, scores[(j-1)*lenSource+i-1]+edits)
-    					    );
+          for (j = 0; j < lenTarget; j++) {
+              if(i == 0) {
+                  elem = sv_2mortal(av_shift(arrayTarget));
+                  t[j] = (int)SvIV((SV *)elem); 
               }
-        }
 
-        retval = scores[lenSource*lenTarget-1];
-        free(scores);
-        free(arrSource);
-        free(arrTarget);
-      }
-      else {
-        /* handle a blank string */
-        retval = (lenSource>lenTarget)?--lenSource:--lenTarget;
+              edits = (s[i] == t[j]) ? 0 : 1;
+              v1[j + 1] = MIN(MIN(v1[j] + 1, v0[j + 1] + 1), v0[j] + edits);
+          }
+
+          for (j = 0; j < (lenTarget + 1); j++) {
+              v0[j] = v1[j];
+          }
       }
 
-    sv_setiv_mg(TARG, retval);
-    return; /*we did a PUTBACK earlier, do not let xsubpp's PUTBACK run */
+      RETVAL = v1[lenTarget];
+      free(s);
+      free(t);
+      free(v0);
+      free(v1);
+    }
+    else {
+      /* handle a blank string */
+      RETVAL = (lenSource>lenTarget) ? lenSource : lenTarget;
+    }
   }
-}
+OUTPUT:
+  RETVAL

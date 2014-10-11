@@ -5,7 +5,7 @@ use warnings FATAL => 'all';
 require Exporter;
 
 @Text::Levenshtein::XS::ISA       = qw/Exporter/;
-$Text::Levenshtein::XS::VERSION   = qw/0.30_04/;
+$Text::Levenshtein::XS::VERSION   = qw/0.30_05/;
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
 
 eval {
@@ -20,7 +20,7 @@ eval {
 
 
 sub distance {
-    return Text::Levenshtein::XS::xs_distance( [unpack('U*', defined $_[0]?$_[0]:'')], [unpack('U*', defined $_[1]?$_[1]:'')] );
+    return Text::Levenshtein::XS::xs_distance( [unpack('U*', shift)], [unpack('U*', shift)] );
 }
 
 
