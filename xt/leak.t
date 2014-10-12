@@ -3,10 +3,12 @@ use 5.008;
 use strict;
 use warnings FATAL => 'all';
 use Test::More;
-use Test::LeakTrace;
 use Text::Levenshtein::XS qw/distance/;
 
-no_leaks_ok(sub { distance('aaa' x $_, 'ax' x $_) for 1..1000 }, 'no memory leaks in distance');
+eval "use Test::LeakTrace";
+plan skip_all => "Test::LeakTrace required to test for memory leaks" if $@;
+
+no_leaks_ok(sub { distance('aaaa' x $_, 'ax' x $_) for 1..1000 }, 'no memory leaks in distance');
 
 
 
