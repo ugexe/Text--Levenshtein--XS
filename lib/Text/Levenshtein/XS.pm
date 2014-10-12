@@ -87,7 +87,6 @@ Stops calculations and returns undef if $max_distance is set, non-zero (0 = no l
     print (defined $distance) ? $distance : "Exceeded max distance";
     # prints "Exceeded max distance"
 
-
 =head1 NOTES
 
 Drop in replacement for L<Text::LevenshteinXS>

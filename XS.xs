@@ -66,19 +66,22 @@ PPCODE:
 
             v1[j + 1] = MIN(MIN(v1[j] + 1, v0[j + 1] + 1), (v0[j] + ((s[i] == t[j]) ? 0 : 1)));
 
-            /* return undef if max distance has been exceeded by current lowest possible distance */
+            /* Check the current distance once we have reached the appropriate index */
+            /* v1[0] == index of current distance of v1 (i.e. v1[v1[0]] == current distance) */
             if( v1[0] == j ) {
                 if( lenTarget == lenSource && md < v1[v1[0]] ) {
+                    /* return undef if max distance has been exceeded by current lowest possible distance */
                     XSRETURN_UNDEF;                  
                 }
                 else if( j >= lenSource && md < (v1[v1[0]] + (MAX(diff,j) - MIN(diff,j) - 1)) ) {
-                    XSRETURN_UNDEF;                  
+                    /* we can look at the length difference along with the current distance to determine a minimum distance */
+                    XSRETURN_UNDEF;
                 }
             }
         }
 
         /* copy v1 to v0. no need to copy the array on the last iteration */
-        if( i < lenSource || v1[lenTarget] > md ) {
+        if( i < lenSource ) {
             for (j = 0; j < (lenTarget + 1); j++) {
                 v0[j] = v1[j];
             }
