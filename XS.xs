@@ -78,7 +78,7 @@ PPCODE:
         }
 
         /* copy v1 to v0. no need to copy the array on the last iteration */
-        if( i < lenSource ) {
+        if( i < lenSource || v1[lenTarget] > md ) {
             for (j = 0; j < (lenTarget + 1); j++) {
                 v0[j] = v1[j];
             }

@@ -5,6 +5,8 @@ use warnings FATAL => 'all';
 use Test::More;
 use Text::Levenshtein::XS qw/distance/;
 
+plan skip_all => "Test::LeakTrace does not work with Devel::Cover" if exists($INC{'Devel/Cover.pm'});
+
 eval "use Test::LeakTrace";
 plan skip_all => "Test::LeakTrace required to test for memory leaks" if $@;
 

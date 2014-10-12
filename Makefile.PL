@@ -18,7 +18,7 @@ WriteMakefile (
     PREREQ_PM => {
     },
     CONFIGURE_REQUIRES => {
-        'ExtUtils::MakeMaker' => 6.64, # For BUILD_REQUIRES
+        'ExtUtils::MakeMaker' => 6.64, # For TEST_REQUIRES
     },
     TEST_REQUIRES => {
         'Test::More' => 0.98_01,
