@@ -17,7 +17,7 @@ xs_distance (arraySource, arrayTarget, maxDistance)
   AV *    arrayTarget
   SV *    maxDistance
 INIT:
-    unsigned int i,j,edits,answer,*s,*t,*v0,*v1;
+    unsigned int i,j,edits,*s,*t,*v0,*v1;
     unsigned int lenSource = av_len(arraySource)+1;
     unsigned int lenTarget = av_len(arrayTarget)+1;
     unsigned int md = SvUV(maxDistance);
@@ -88,13 +88,11 @@ PPCODE:
         }
     }
 
-    /* don't check md here so that if something is wrong with the earlier short circuit the tests will catch it */
-    answer = v1[lenTarget];
     Safefree(s);
     Safefree(t);
     Safefree(v0);
     Safefree(v1);
 
     /* TODO: return list of distances if passed a list */
-    XPUSHs(sv_2mortal(newSViv(answer)));
+    XPUSHs(sv_2mortal(newSViv(v1[lenTarget])));
 } /* PPCODE */
