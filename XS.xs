@@ -17,12 +17,16 @@ xs_distance (arraySource, arrayTarget, maxDistance)
   AV *    arrayTarget
   SV *    maxDistance
 INIT:
-    unsigned int i,j,edits,answer,*s,*t,*v0,*v1;
+    unsigned int i,j,edits,*s,*t,*v0,*v1,undef;
     unsigned int lenSource = av_len(arraySource)+1;
     unsigned int lenTarget = av_len(arrayTarget)+1;
+    /* hold the user supplied argument for max distance */
     unsigned int md = SvUV(maxDistance);
+    /* mdx contains a calculated max different (md) to use in the algorithm itself */
+    unsigned int mdx = (md == 0) ? MAX(lenSource,lenTarget) : md;
     unsigned int diff = MAX(lenSource , lenTarget) - MIN(lenSource, lenTarget);
     SV* elem;
+    SV* answer;
 
     if(lenSource == 0 || lenTarget == 0) {
         if( md != 0 && MAX(lenSource, lenTarget) > md ) {
@@ -33,26 +37,27 @@ INIT:
             XSRETURN(1);
         }
     }
-PPCODE:
-{
-    /* this block changes md such that it is always set to the */
-    /* max possible distance it if it is set to unlimited (0)  */
-    md = (md == 0) ? MAX(lenSource,lenTarget) : md;
     /* if string length difference > max_distance then return undef */
-    if (diff > md)
+
+    if (diff > mdx)
         XSRETURN_UNDEF;
 
+    undef = 0;
+PPCODE:
+{
     Newx(s,  (lenSource + 1), unsigned int); // source
     Newx(t,  (lenTarget + 1), unsigned int); // target
     Newx(v0, (lenTarget + 1), unsigned int); // vector 0
     Newx(v1, (lenTarget + 1), unsigned int); // vector 1
-
     /* init first distance row with worst-case distance values */
     for (i=0; i < (lenTarget + 1); i++) {
         v0[i] = i;
     }
 
     for (i=0; i < lenSource; i++) {
+        if ( undef )
+            break;
+
         elem = sv_2mortal(av_shift(arraySource));
         s[i] = SvUV((SV *)elem);
 
@@ -69,13 +74,15 @@ PPCODE:
             /* Check the current distance once we have reached the appropriate index */
             /* v1[0] == index of current distance of v1 (i.e. v1[v1[0]] == current distance) */
             if( v1[0] == j ) {
-                if( lenTarget == lenSource && md < v1[v1[0]] ) {
+                if( lenTarget == lenSource && mdx < v1[v1[0]] ) {
                     /* return undef if max distance has been exceeded by current lowest possible distance */
-                    XSRETURN_UNDEF;                  
+                    undef = 1;
+                    break;
                 }
-                else if( j >= lenSource && md < (v1[v1[0]] + (MAX(diff,j) - MIN(diff,j) - 1)) ) {
+                else if( j >= lenSource && mdx < (v1[v1[0]] + (MAX(diff,j) - MIN(diff,j) - 1)) ) {
                     /* we can look at the length difference along with the current distance to determine a minimum distance */
-                    XSRETURN_UNDEF;
+                    undef = 1;
+                    break;
                 }
             }
         }
@@ -89,12 +96,12 @@ PPCODE:
     }
 
     /* don't check md here so that if something is wrong with the earlier short circuit the tests will catch it */
-    answer = v1[lenTarget];
+    answer = (undef == 1) ? &PL_sv_undef : newSVuv(v1[lenTarget]);
     Safefree(s);
     Safefree(t);
     Safefree(v0);
     Safefree(v1);
 
     /* TODO: return list of distances if passed a list */
-    XPUSHs(sv_2mortal(newSViv(answer)));
+    XPUSHs(sv_2mortal(answer));
 } /* PPCODE */
