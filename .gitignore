@@ -22,3 +22,5 @@ XS.c
 *.def
 dll.base
 dll.exp
+*.gz
+*.tar
