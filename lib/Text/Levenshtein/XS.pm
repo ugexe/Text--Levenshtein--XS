@@ -73,13 +73,15 @@ Returns the number of edits (insert,delete,substitute) required to turn the sour
 
 =back
 
-Returns: int that represents the edit distance between the two argument. Stops calculations and returns undef if max distance is set and reached.
+Returns: int that represents the edit distance between the two argument, or undef if $max_distance threshold is exceeded.
 
-Wrapper function to take the edit distance between a source and target string using XS algorithm implementation.
+Takes the edit distance between a source and target string using XS 2 vector implementation.
 
     use Text::Levenshtein::XS qw/distance/;
     print distance('Neil','Niel');
     # prints 2
+
+Stops calculations and returns undef if $max_distance is set, non-zero (0 = no limit), and the algorithm has determined the final distance will be greater than $max_distance.
 
     my $distance = distance('Neil','Niel',1);
     print (defined $distance) ? $distance : "Exceeded max distance";
