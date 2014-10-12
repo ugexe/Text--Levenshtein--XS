@@ -10,6 +10,7 @@ t/01_imports.t
 t/02_distance.t
 XS.xs
 xt/boilerplate.t
+xt/leak.t
 xt/manifest.t
 xt/pod-coverage.t
 xt/pod.t
