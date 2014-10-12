@@ -62,9 +62,15 @@ PPCODE:
 
                 v1[j + 1] = MIN(MIN(v1[j] + 1, v0[j + 1] + 1), (v0[j] + ((s[i] == t[j]) ? 0 : 1)));
 
-                /* max distance exceeded */
-                if( v1[0] == j && (v1[v1[0]]+1) > md )
-                    XSRETURN_UNDEF;
+
+                if( v1[0] == j ) {
+                    if( lenTarget == lenSource && md < v1[v1[0]] ) {
+                        XSRETURN_UNDEF;                  
+                    }
+                    else if( j >= lenSource && md < (v1[v1[0]] + (MAX(diff,j) - MIN(diff,j) - 1)) ) {
+                        XSRETURN_UNDEF;                  
+                    }
+                }
             }
 
             /* copy v1 to v0 */
@@ -75,6 +81,7 @@ PPCODE:
             }
         }
 
+        /* don't check md here so that if something is wrong with the earlier short circuit the tests will catch it */
         answer = v1[lenTarget];
         Safefree(s);
         Safefree(t);
