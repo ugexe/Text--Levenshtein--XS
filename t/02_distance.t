@@ -6,16 +6,19 @@ use Test::More;
 use Text::Levenshtein::XS qw/distance/;
 
 subtest 'distance' => sub { 
-    is( distance('four','for'),             1, 'test distance insertion');
-    is( distance('four','four'),            0, 'test distance matching');
-    is( distance('four','fourth'),          2, 'test distance deletion');
-    is( distance('four','fuor'),            2, 'test distance (no) transposition');
-    is( distance('four','fxxr'),            2, 'test distance substitution');
-    is( distance('four','FOuR'),            3, 'test distance case');
-    is( distance('four',''),                4, 'test distance target empty');
-    is( distance('','four'),                4, 'test distance source empty');
-    is( distance('',''),                    0, 'test distance source and target empty');
-    is( distance('111','11'),               1, 'test distance numbers');
+    is( distance('four','for'),             1,      'test distance insertion');
+    is( distance('four','four'),            0, '     test distance matching');
+    is( distance('four','fourth'),          2,      'test distance deletion');
+    is( distance('four','fuor'),            2,      'test distance (no) transposition');
+    is( distance('four','fxxr'),            2,      'test distance substitution');
+    is( distance('four','FOuR'),            3,      'test distance case');
+    is( distance('four',''),                4,      'test distance target empty');
+    is( distance('','four'),                4,      'test distance source empty');
+    is( distance('',''),                    0,      'test distance source and target empty');
+    is( distance('111','11'),               1,      'test distance numbers');
+    is( distance('xxx' x 10000,'xa' x 500), 29500,  'test larger source and target');
+    is( distance('abcdxx','xx'),            4,      'test distance');
+    is( distance('xx','abcdxx'),            4,      'test distance');
 };
 
 subtest 'distance using a max distance' => sub {
@@ -37,6 +40,8 @@ subtest 'distance using a max distance' => sub {
     is( distance('abcdxx','xx', 4),         4,      'test maxdistance == length difference between source and target; longer source');
     is( distance('xx','abcdxx', 1),         undef,  'test distance > maxdistance with length difference > max distance; longer target');
     is( distance('xx','abcdxx', 4),         4,      'test maxdistance == length difference between source and target; longer target');
+    is( distance('x','123456789x', 8),      undef,  'test maxdistance == length difference between source and target; clear example.');
+    is( distance('x','123456789x', 9),      9,      'test maxdistance == length difference between source and target; clear example.');
 };
 
 subtest 'utf8' => sub {
