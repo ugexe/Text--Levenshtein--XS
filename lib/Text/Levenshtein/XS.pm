@@ -39,6 +39,11 @@ __END__
 
 Text::Levenshtein::XS - XS Levenshtein edit distance.
 
+=for HTML 
+    <a href="https://travis-ci.org/ugexe/Text--Levenshtein--XS"><img src="https://travis-ci.org/ugexe/Text--Levenshtein--XS.svg?branch=master"></a>
+    <a href='https://coveralls.io/r/ugexe/Text--Levenshtein--XS?branch=master'><img src='https://coveralls.io/repos/ugexe/Text--Levenshtein--XS/badge.png?branch=master' alt='Coverage Status' /></a>
+=cut
+
 =head1 SYNOPSIS
 
     use Text::Levenshtein::XS qw/distance/;
