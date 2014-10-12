@@ -5,7 +5,7 @@ use warnings FATAL => 'all';
 use Test::More;
 use Text::Levenshtein::XS qw/distance/;
 
-subtest 'distance' => sub { 
+subtest 'distance with no max distance' => sub { 
     is( distance('four','for'),             1,      'test distance insertion');
     is( distance('four','four'),            0, '     test distance matching');
     is( distance('four','fourth'),          2,      'test distance deletion');
@@ -44,24 +44,28 @@ subtest 'distance using a max distance' => sub {
     is( distance('x','123456789x', 9),      9,      'test maxdistance == length difference between source and target; clear example.');
 };
 
-subtest 'utf8' => sub {
+subtest 'distance using utf8' => sub {
     use utf8;
     binmode STDOUT, ":encoding(utf8)";
-    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡ'),            0, 'test distance matching');
-    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓡ'),             1, 'test distance insertion');
-    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡⓣⓗ'),          2, 'test distance deletion');
-    is( distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'),            2, 'test distance (no) transposition');
-    is( distance('ⓕⓞⓤⓡ','ⓕⓧⓧⓡ'),            2, 'test distance substitution');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡ'),            0,      'test distance matching');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓡ'),             1,      'test distance insertion');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓞⓤⓡⓣⓗ'),          2,      'test distance deletion');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ'),            2,      'test distance (no) transposition');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓧⓧⓡ'),            2,      'test distance substitution');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ',1),          undef,  'test distance > max distance');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ',2),          2,      'test distance == max distance');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ',100),        2,      'test distance < max distance');
+    is( distance('ⓕⓞⓤⓡ','ⓕⓤⓞⓡ',0),          2,      'test distance; max distance == 0');
 };
 
 subtest 'Text::LevenshteinXS compatability' => sub {
-    is( distance("foo","four"),             2,"Correct distance foo four");
-    is( distance("foo","foo"),              0,"Correct distance foo foo");
-    is( distance("cow","cat"),              2,"Correct distance cow cat");
-    is( distance("cat","moocow"),           5,"Correct distance cat moocow");
-    is( distance("cat","cowmoo"),           5,"Correct distance cat cowmoo");
-    is( distance("sebastian","sebastien"),  1,"Correct distance sebastian sebastien");
-    is( distance("more","cowbell"),         5,"Correct distance more cowbell");
+    is( distance("foo","four"),             2,      "Correct distance foo four");
+    is( distance("foo","foo"),              0,      "Correct distance foo foo");
+    is( distance("cow","cat"),              2,      "Correct distance cow cat");
+    is( distance("cat","moocow"),           5,      "Correct distance cat moocow");
+    is( distance("cat","cowmoo"),           5,      "Correct distance cat cowmoo");
+    is( distance("sebastian","sebastien"),  1,      "Correct distance sebastian sebastien");
+    is( distance("more","cowbell"),         5,      "Correct distance more cowbell");
 };
 
 # Not quite supported yet

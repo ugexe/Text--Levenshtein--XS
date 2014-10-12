@@ -1,5 +1,10 @@
 Revision history for Perl module Text::Levenshtein::XS
 
+0.41_02 Sun Oct 12 12:04:49 2014
+    - max_distance functionality added
+    - tests for max_distance
+    - Change how the return value is placed on the stack (now using XPUSH instead of modifying TARG)
+
 0.40 Fri Oct 10 01:20:21 2014
     - I guess 0.3 > 0.31
 
