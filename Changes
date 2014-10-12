@@ -1,5 +1,8 @@
 Revision history for Perl module Text::Levenshtein::XS
 
+0.42 Sun Oct 12 14:07:31 2014
+    - CPAN release of 0.41_02 features/updates
+
 0.41_02 Sun Oct 12 12:04:49 2014
     - max_distance functionality added
     - tests for max_distance
