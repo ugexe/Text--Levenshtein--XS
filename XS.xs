@@ -27,7 +27,6 @@ INIT:
     unsigned int diff = MAX(lenSource , lenTarget) - MIN(lenSource, lenTarget);
     unsigned int undef = 0;
     SV* elem;
-    SV* answer;
 
     if(lenSource == 0 || lenTarget == 0) {
         if( md != 0 && MAX(lenSource, lenTarget) > md ) {
@@ -86,20 +85,17 @@ PPCODE:
         }
 
         /* copy v1 to v0. no need to copy the array on the last iteration */
-        if( i < lenSource ) {
-            for (j = 0; j < (lenTarget + 1); j++) {
+        if( i < lenSource ) 
+            for (j = 0; j < (lenTarget + 1); j++) 
                 v0[j] = v1[j];
-            }
-        }
     }
 
     /* don't check md here so that if something is wrong with the earlier short circuit the tests will catch it */
-    answer = (undef == 1) ? &PL_sv_undef : newSVuv(v1[lenTarget]);
+    XPUSHs(sv_2mortal( (undef == 1) ? &PL_sv_undef : newSVuv(v1[lenTarget]) ));
+    
     Safefree(s);
     Safefree(t);
     Safefree(v0);
     Safefree(v1);
 
-    /* TODO: return list of distances if passed a list */
-    XPUSHs(sv_2mortal(answer));
-} /* PPCODE */
+  } /* PPCODE */
