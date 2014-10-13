@@ -8,27 +8,33 @@ my $repo = 'https://github.com/ugexe/Text--Levenshtein--XS';
 my $bugs = 'https://github.com/ugexe/Text--Levenshtein--XS/issues';
 
 WriteMakefile ( 
-    NAME => 'Text::Levenshtein::XS',
+    NAME                => 'Text::Levenshtein::XS',
     VERSION_FROM        => $pm,
     ABSTRACT_FROM       => $pm,
     AUTHOR              => 'Nick Logan <ugexe@cpan.org>',
     LICENSE             => 'perl',
     MIN_PERL_VERSION    => '5.008',
-    depend              => { '$(FIRST_MAKEFILE)' => '$(VERSION_FROM)' },
-    PREREQ_PM => {
+    PREREQ_PM           => {
     },
-    CONFIGURE_REQUIRES => {
+    CONFIGURE_REQUIRES  => {
         'ExtUtils::MakeMaker' => 6.64, # For TEST_REQUIRES
     },
-    TEST_REQUIRES => {
+    TEST_REQUIRES       => {
         'Test::More' => 0.98_01,
     },
-    META_MERGE => {
+    META_MERGE          => {
         resources => {
             repository => $repo,
             bugtracker => "$bugs",
         },
+        provides  => {
+            'Text::Levenshtein::XS' => {
+                file    => 'lib/Text/Levenshtein/XS.pm',
+                # version => '0.42',
+            },
+        },
     },
+    depend              => { '$(FIRST_MAKEFILE)' => '$(VERSION_FROM)' }, # XS make cleanup
 );
 
 

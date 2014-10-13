@@ -15,8 +15,9 @@ eval {
 } or do {
     require DynaLoader;
     DynaLoader::bootstrap(__PACKAGE__, $Text::Levenshtein::XS::VERSION);
-    sub dl_load_flags {0} # Prevent DynaLoader from complaining and croaking
+    local *dl_load_flags = sub { 1 }; # Prevent DynaLoader from complaining and croaking
 };
+
 
 
 sub distance {
