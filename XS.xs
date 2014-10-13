@@ -33,7 +33,7 @@ INIT:
             XSRETURN_UNDEF;
         }
         else {
-            XPUSHs(sv_2mortal(newSViv( MAX(lenSource, lenTarget) )));
+            XPUSHs(sv_2mortal(newSVuv( MAX(lenSource, lenTarget) )));
             XSRETURN(1);
         }
     }
@@ -92,10 +92,10 @@ PPCODE:
 
     /* don't check md here so that if something is wrong with the earlier short circuit the tests will catch it */
     XPUSHs(sv_2mortal( (undef == 1) ? &PL_sv_undef : newSVuv(v1[lenTarget]) ));
-    
+
     Safefree(s);
     Safefree(t);
     Safefree(v0);
     Safefree(v1);
+} /* PPCODE */
 
-  } /* PPCODE */
