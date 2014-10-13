@@ -1,4 +1,4 @@
-
+#define PERL_NO_GET_CONTEXT
 #define NO_XSLOCKS
 #include "EXTERN.h"
 #include "perl.h"
@@ -17,7 +17,7 @@ xs_distance (arraySource, arrayTarget, maxDistance)
   AV *    arrayTarget
   SV *    maxDistance
 INIT:
-    unsigned int i,j,edits,*s,*t,*v0,*v1,undef;
+    unsigned int i,j,edits,*s,*t,*v0,*v1;
     unsigned int lenSource = av_len(arraySource)+1;
     unsigned int lenTarget = av_len(arrayTarget)+1;
     /* hold the user supplied argument for max distance */
@@ -25,6 +25,7 @@ INIT:
     /* mdx contains a calculated max different (md) to use in the algorithm itself */
     unsigned int mdx = (md == 0) ? MAX(lenSource,lenTarget) : md;
     unsigned int diff = MAX(lenSource , lenTarget) - MIN(lenSource, lenTarget);
+    unsigned int undef = 0;
     SV* elem;
     SV* answer;
 
@@ -37,12 +38,9 @@ INIT:
             XSRETURN(1);
         }
     }
-    /* if string length difference > max_distance then return undef */
 
     if (diff > mdx)
         XSRETURN_UNDEF;
-
-    undef = 0;
 PPCODE:
 {
     Newx(s,  (lenSource + 1), unsigned int); // source
