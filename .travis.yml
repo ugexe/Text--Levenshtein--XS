@@ -15,14 +15,15 @@ matrix:
   allow_failures:
     - perl: "blead"             # ignore failures for blead perl
 before_install:
+    - git config --global user.name "travis-ci"
     - git checkout $TRAVIS_BRANCH
     - git reset --hard $TRAVIS_COMMIT
     - git clone git://github.com/travis-perl/helpers.git ~/travis-perl-helpers
     - source ~/travis-perl-helpers/init
-    - dzil authordeps --missing | cpanm --no-interactive --no-man-pages --notest --skip-satisfied
     - build-perl
+    - cpanm 
+    - dzil authordeps --missing | cpanm --no-interactive --no-man-pages --notest --skip-satisfied
     - perl -V
-    - git config --global user.name "Text::Levenshtein::XS"
     - build-dist
     - cd $BUILD_DIR  
 install:
