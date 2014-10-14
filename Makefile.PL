@@ -30,8 +30,7 @@ my %WriteMakefileArgs = (
     "File::Temp" => 0,
     "IO::Handle" => 0,
     "IPC::Open3" => 0,
-    "Test::More" => "0.88",
-    "utf8" => 0
+    "Test::More" => "0.88"
   },
   "VERSION" => "0.426",
   "test" => {
@@ -49,7 +48,6 @@ my %FallbackPrereqs = (
   "Test::More" => "0.88",
   "XSLoader" => 0,
   "strict" => 0,
-  "utf8" => 0,
   "warnings" => 0
 );
 

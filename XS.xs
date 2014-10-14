@@ -77,8 +77,9 @@ PPCODE:
                     break;
                 }
                 else if( j >= lenSource && mdx < (v1[v1[0]] + (MAX(diff,j) - MIN(diff,j) - 1)) ) {
+                    warn("i:%d j:%d mdx:%d lenSource:%d lenTarget:%d, v1[0]:%d v1[v1[0]]:%d", i,j,mdx,lenSource,lenTarget,v1[0],v1[v1[0]]);
                     /* we can look at the length difference along with the current distance to determine a minimum distance */
-                    undef = 11;
+                    undef = 1;
                     break;
                 }
             }
@@ -91,7 +92,7 @@ PPCODE:
     }
 
     /* don't check md here so that if something is wrong with the earlier short circuit the tests will catch it */
-    XPUSHs(sv_2mortal( (undef >= 1) ? newSVuv(undef) : newSVuv(v1[lenTarget]) ));
+    XPUSHs(sv_2mortal( (undef == 1) ? &PL_sv_undef : newSVuv(v1[lenTarget]) ));
 
     Safefree(s);
     Safefree(t);

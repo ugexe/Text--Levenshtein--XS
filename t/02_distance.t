@@ -12,7 +12,7 @@ use strict;
 use warnings FATAL => 'all';
 use Test::More;
 use Text::Levenshtein::XS qw/distance/;
-
+=head2
 subtest 'distance with no max distance' => sub { 
     is( distance('four','for'),             1,      'test distance insertion');
     is( distance('four','four'),            0, '     test distance matching');
@@ -75,12 +75,10 @@ subtest 'Text::LevenshteinXS compatability' => sub {
     is( distance("sebastian","sebastien"),  1,      "Correct distance sebastian sebastien");
     is( distance("more","cowbell"),         5,      "Correct distance more cowbell");
 };
-
+=cut
 
 subtest 'User supplied tests for bugs' => sub {
-    note('nglenn@cpan.org https://github.com/ugexe/Text--Levenshtein--XS/issues/7'); 
-    is( distance('cuba','thing'),           5,      'test1');
-    is( distance('cuba','thing',10),        5,      'test2');
+    is( distance('cuba','thing'), distance('cuba','thing',10), 'nglenn@cpan.org https://github.com/ugexe/Text--Levenshtein--XS/issues/7');
 };
 # Not quite supported yet
 #my @foo = distance("foo","four","foo","bar");
