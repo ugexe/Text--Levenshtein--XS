@@ -29,6 +29,7 @@
             "Dist::Zilla" : "5",
             "Dist::Zilla::Plugin::ArchiveRelease" : "0",
             "Dist::Zilla::Plugin::AutoPrereqs" : "0",
+            "Dist::Zilla::Plugin::Bugtracker" : "0",
             "Dist::Zilla::Plugin::CPANFile" : "0",
             "Dist::Zilla::Plugin::CheckChangesHasContent" : "0",
             "Dist::Zilla::Plugin::CheckPrereqsIndexed" : "0",
@@ -43,7 +44,6 @@
             "Dist::Zilla::Plugin::Git::NextVersion" : "0",
             "Dist::Zilla::Plugin::Git::Push" : "0",
             "Dist::Zilla::Plugin::Git::Tag" : "0",
-            "Dist::Zilla::Plugin::GithubMeta" : "0",
             "Dist::Zilla::Plugin::License" : "0",
             "Dist::Zilla::Plugin::MakeMaker" : "0",
             "Dist::Zilla::Plugin::Manifest" : "0",
@@ -127,13 +127,13 @@
       "bugtracker" : {
          "web" : "https://github.com/ugexe/Text--Levenshtein--XS/issues"
       },
-      "homepage" : "https://github.com/ugexe/Text--Levenshtein--XS",
+      "homepage" : "https://metacpan.org/release/Text-Levenshtein-XS",
       "license" : [
          "http://dev.perl.org/licenses/"
       ],
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/ugexe/Text--Levenshtein--XS.git",
+         "url" : "https://github.com/ugexe/Text--Levenshtein--XS",
          "web" : "https://github.com/ugexe/Text--Levenshtein--XS"
       }
    },
@@ -146,6 +146,7 @@
          "Dist::Zilla" : "5.020",
          "Dist::Zilla::Plugin::ArchiveRelease" : "4.00",
          "Dist::Zilla::Plugin::AutoPrereqs" : "5.020",
+         "Dist::Zilla::Plugin::Bugtracker" : "1.111080",
          "Dist::Zilla::Plugin::CPANFile" : "5.020",
          "Dist::Zilla::Plugin::CheckChangesHasContent" : "0.006",
          "Dist::Zilla::Plugin::CheckPrereqsIndexed" : "0.012",
@@ -160,7 +161,6 @@
          "Dist::Zilla::Plugin::Git::NextVersion" : "2.025",
          "Dist::Zilla::Plugin::Git::Push" : "2.025",
          "Dist::Zilla::Plugin::Git::Tag" : "2.025",
-         "Dist::Zilla::Plugin::GithubMeta" : "0.46",
          "Dist::Zilla::Plugin::License" : "5.020",
          "Dist::Zilla::Plugin::MakeMaker" : "5.020",
          "Dist::Zilla::Plugin::Manifest" : "5.020",
@@ -600,9 +600,9 @@
             "version" : "5.020"
          },
          {
-            "class" : "Dist::Zilla::Plugin::GithubMeta",
-            "name" : "GithubMeta",
-            "version" : "0.46"
+            "class" : "Dist::Zilla::Plugin::Bugtracker",
+            "name" : "Bugtracker",
+            "version" : "1.111080"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaJSON",
