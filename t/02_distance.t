@@ -12,7 +12,10 @@ use strict;
 use warnings FATAL => 'all';
 use Test::More;
 use Text::Levenshtein::XS qw/distance/;
-
+    is( distance('xx','abcdxx', 4),         4,      'test maxdistance == length difference between source and target; longer target');
+    is( distance('x','123456789x', 8),      undef,  'test maxdistance == length difference between source and target; clear example.');
+    is( distance('x','123456789x', 9),      9,      'test maxdistance == length difference between source and target; clear example.');
+=head2
 subtest 'distance with no max distance' => sub { 
     is( distance('four','for'),             1,      'test distance insertion');
     is( distance('four','four'),            0, '     test distance matching');
@@ -79,7 +82,7 @@ subtest 'Text::LevenshteinXS compatability' => sub {
 subtest 'Testing previous bugs/issues' => sub {
     is( distance('cuba','thing'), distance('cuba','thing',10), 'nglenn@cpan.org https://github.com/ugexe/Text--Levenshtein--XS/issues/7');
 };
-
+=cut
 # Not quite supported yet
 #my @foo = distance("foo","four","foo","bar");
 #my @bar = (2,0,3);
