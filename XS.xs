@@ -71,6 +71,7 @@ PPCODE:
             /* Check the current distance once we have reached the appropriate index */
             /* v1[0] == index of current distance of v1 (i.e. v1[v1[0]] == current distance) */
             if( v1[0] == j ) {
+                warn("i:%d j:%d mdx:%d lenSource:%d lenTarget:%d, v1[0]:%d v1[v1[0]]:%d diff:%d final:%d", i,j,mdx,lenSource,lenTarget,v1[0],v1[v1[0]],diff,(v1[v1[0]] + diff));
                 if( lenSource == lenTarget ) {
                     if( mdx < v1[v1[0]] ) {
                         undef = 1;
@@ -78,7 +79,6 @@ PPCODE:
                     }
                 }
                 else if( j <= lenSource && mdx < ( MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff) ) ) { 
-                    warn("i:%d j:%d mdx:%d lenSource:%d lenTarget:%d, v1[0]:%d v1[v1[0]]:%d diff:%d final:%d", i,j,mdx,lenSource,lenTarget,v1[0],v1[v1[0]],diff,(v1[v1[0]] + diff));
                     warn("FIRST BLOCK");
                     /* return undef if max distance has been exceeded by current lowest possible distance */
                     undef = 1;
