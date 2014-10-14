@@ -1,39 +1,38 @@
 Revision history for Perl module Text::Levenshtein::XS
 
-0.426     2014-10-14 15:17:49-04:00 America/New_York
+0.426     2014-10-14 15:18:36-04:00 America/New_York
     - Dist::Zilla
-    - Max distance bug fix (github issue #7). Caught by nglenn@cpan.org
+    - New max distance algorithm bug fix (github issue #7). Caught by nglenn@cpan.org
 
-0.42 Sun Oct 12 14:07:31 2014
+0.42 2014-10-12 14:07:31-04:00 America/New_York
     - CPAN release of 0.41_02 features/updates
 
-0.41_02 Sun Oct 12 12:04:49 2014
+0.41_02 2014-10-12 12:04:49-04:00 America/New_York
     - max_distance functionality added
     - tests for max_distance
     - Change how the return value is placed on the stack (now using XPUSH instead of modifying TARG)
     - memory leak author test
 
-0.40 Fri Oct 10 01:20:21 2014
+0.40 2014-10-11 01:20:21-04:00 America/New_York
     - I guess 0.3 > 0.31
 
-0.31 Fri Oct 10 01:11:46 2014
+0.31 2014-10-11 01:11:46-04:00 America/New_York
     - Fixed: https://rt.cpan.org/Public/Bug/Display.html?id=99413
     - Using 2 row algorithm instead of slength x tlength matrix
 
-0.30_01 Fri Oct 10 15:03:02 2014
-    - https://rt.cpan.org/Public/Bug/Display.html?id=99413
-        - Not sure the source of this bug. Just putting up to test.
+0.30_01 2014-10-10 15:03:02-04:00 America/New_York
+    - https://rt.cpan.org/Public/Bug/Display.html?id=99413 Not sure the source of this bug. Just putting up to test.
 
-0.30 Sun Jan 20 23:38:11 2013
+0.30 013-01-20 23:38:11-04:00 America/New_York
     - alloca changed to malloc
-       - associated memory managment
-       - ppm should build now
+    - associated memory managment
+    - ppm should build now
 
-0.20 Fri Jan 18 23:22:31 2013
+0.20  2013-01-18 23:22:31-04:00 America/New_York
     - MIN/MAX macros added
     - loops combined
 
-0.10 Thu Jan 17 01:20:51 2013
+0.10 2013-10-14 01:20:51-04:00 America/New_York
     - Initial release. 
 
 
