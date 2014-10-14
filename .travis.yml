@@ -21,14 +21,13 @@ before_install:
     - perl -V
     - build-dist
 install:
-    - cpan-install --toolchain
     - cpan-install --deps       # installs prereqs, including recommends
     - cpan-install --coverage   # installs converage prereqs, if enabled
     - cpan-install Test::LeakTrace
 before_script:
     - coverage-setup
 script:
-    - dzil test --release
+    - dzil test --all
 after_success:
     - coverage-report
 notifications:
