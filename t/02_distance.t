@@ -79,7 +79,7 @@ subtest 'Text::LevenshteinXS compatability' => sub {
 subtest 'Testing previous bugs/issues' => sub {
     is( distance('cuba','thing'), distance('cuba','thing',10), 'nglenn@cpan.org https://github.com/ugexe/Text--Levenshtein--XS/issues/7');
 
-    is( distance("aaaaaa","aa", 3), undef, "yo");
+    is( distance("aaaa","aa", 3), undef, "yo");
 };
 
 # Not quite supported yet
