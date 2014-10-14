@@ -1,22 +1,15 @@
 package Text::Levenshtein::XS;
+
 use 5.008;
 use strict;
 use warnings FATAL => 'all';
 require Exporter;
+require XSLoader;
+XSLoader::load('Text::Levenshtein::XS', $Text::Levenshtein::XS::VERSION);
 
 @Text::Levenshtein::XS::ISA       = qw/Exporter/;
-$Text::Levenshtein::XS::VERSION   = qw/0.42/;
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
 
-eval {
-    require XSLoader;
-    XSLoader::load(__PACKAGE__, $Text::Levenshtein::XS::VERSION);
-    1;
-} or do {
-    require DynaLoader;
-    DynaLoader::bootstrap(__PACKAGE__, $Text::Levenshtein::XS::VERSION);
-    sub dl_load_flags {0} # Prevent DynaLoader from complaining and croaking
-};
 
 
 sub distance {
@@ -33,16 +26,11 @@ __END__
 
 
 
+# ABSTRACT: Calculate edit distance based on insertion, deletion, substitution, and transposition
+
+=for Pod::Coverage dl_load_flags xs_distance
+
 =encoding utf8
-
-=head1 NAME
-
-Text::Levenshtein::XS - XS Levenshtein edit distance.
-
-=for HTML 
-    <a href="https://travis-ci.org/ugexe/Text--Levenshtein--XS"><img src="https://travis-ci.org/ugexe/Text--Levenshtein--XS.svg?branch=master"></a>
-    <a href='https://coveralls.io/r/ugexe/Text--Levenshtein--XS?branch=master'><img src='https://coveralls.io/repos/ugexe/Text--Levenshtein--XS/badge.png?branch=master' alt='Coverage Status' /></a>
-=cut
 
 =head1 SYNOPSIS
 
@@ -73,18 +61,19 @@ Returns the number of edits (insert,delete,substitute) required to turn the sour
 
 =back
 
-Returns: int that represents the edit distance between the two argument. Stops calculations and returns undef if max distance is set and reached.
+Returns: int that represents the edit distance between the two argument, or undef if $max_distance threshold is exceeded.
 
-Wrapper function to take the edit distance between a source and target string using XS algorithm implementation.
+Takes the edit distance between a source and target string using XS 2 vector implementation.
 
     use Text::Levenshtein::XS qw/distance/;
     print distance('Neil','Niel');
     # prints 2
 
+Stops calculations and returns undef if $max_distance is set, non-zero (0 = no limit), and the algorithm has determined the final distance will be greater than $max_distance.
+
     my $distance = distance('Neil','Niel',1);
     print (defined $distance) ? $distance : "Exceeded max distance";
     # prints "Exceeded max distance"
-
 
 =head1 NOTES
 
@@ -102,20 +91,23 @@ Drop in replacement for L<Text::LevenshteinXS>
 
 =item * L<Text::Fuzzy>
 
+=item * L<Text::Levenshtein::Flexible>
+
 =back
+
+=head1 REPOSITORY
+
+L<https://github.com/ugexe/Text--Levenshtein--XS>
+
+=for HTML 
+    <a href="https://travis-ci.org/ugexe/Text--Levenshtein--XS"><img src="https://travis-ci.org/ugexe/Text--Levenshtein--XS.svg?branch=master"></a>
+    <a href='https://coveralls.io/r/ugexe/Text--Levenshtein--XS?branch=master'><img src='https://coveralls.io/repos/ugexe/Text--Levenshtein--XS/badge.png?branch=master' alt='Coverage Status' /></a>
+=cut
 
 =head1 BUGS
 
 Please report bugs to:
 
 L<https://github.com/ugexe/Text--Levenshtein--XS/issues>
-
-=head1 AUTHOR
-
-Nick Logan <F<ugexe@cpan.com>>
-
-=head1 LICENSE AND COPYRIGHT
-
-This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
 =cut

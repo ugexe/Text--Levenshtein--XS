@@ -1,7 +1,8 @@
+/Text-Levenshtein-XS-*/
 MANIFEST
 MANIFEST.bak
 Makefile
-Makefile.old
+/Makefile.old
 Build
 Build.bat
 META.*
@@ -24,3 +25,5 @@ dll.base
 dll.exp
 *.gz
 *.tar
+releases/
+.gitnxtver_cache
