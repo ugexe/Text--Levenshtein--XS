@@ -75,12 +75,10 @@ PPCODE:
             /* md != 0 lets us only check if the user supplied a max distance */
             /* alternatively we can set the value for mdx inside this block   */
 
-            if( v1[0] == j ) {
-                    if( mdx < ((diff > v1[v1[0]]) ? (diff - v1[v1[0]]) : (v1[v1[0]] + diff)) ) {
-                        warn("FIRST BLOCK11");
-                        undef = 1;
-                        break;
-                    }
+            if( v1[0] == j && mdx < ((diff > v1[v1[0]]) ? (diff - v1[v1[0]]) : (v1[v1[0]] + diff)) ) {
+                warn("FIRST BLOCK11");
+                undef = 1;
+                break;
             }
         }
 
