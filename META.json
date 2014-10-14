@@ -86,6 +86,7 @@
             "Dist::Zilla::Plugin::Test::Synopsis" : "0",
             "Dist::Zilla::Plugin::Test::Version" : "0",
             "Dist::Zilla::Plugin::TestRelease" : "0",
+            "Dist::Zilla::Plugin::UploadToCPAN" : "0",
             "Pod::Coverage::TrustPod" : "0",
             "Test::CPAN::Changes" : "0.19",
             "Test::CPAN::Meta" : "0",
@@ -202,6 +203,7 @@
          "Dist::Zilla::Plugin::Test::Synopsis" : "2.000005",
          "Dist::Zilla::Plugin::Test::Version" : "0.002004",
          "Dist::Zilla::Plugin::TestRelease" : "5.020",
+         "Dist::Zilla::Plugin::UploadToCPAN" : "5.020",
          "Exporter" : "5.70",
          "ExtUtils::MakeMaker" : "6.98",
          "File::Spec" : "3.47",
@@ -663,6 +665,11 @@
             },
             "name" : "RunExtraTests",
             "version" : "0.022"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::UploadToCPAN",
+            "name" : "UploadToCPAN",
+            "version" : "5.020"
          },
          {
             "class" : "Dist::Zilla::Plugin::ArchiveRelease",
