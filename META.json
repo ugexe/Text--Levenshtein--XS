@@ -86,6 +86,7 @@
             "Dist::Zilla::Plugin::Test::Synopsis" : "0",
             "Dist::Zilla::Plugin::Test::Version" : "0",
             "Dist::Zilla::Plugin::TestRelease" : "0",
+            "Dist::Zilla::Plugin::UploadToCPAN" : "0",
             "Pod::Coverage::TrustPod" : "0",
             "Test::CPAN::Changes" : "0.19",
             "Test::CPAN::Meta" : "0",
@@ -119,10 +120,10 @@
    "provides" : {
       "Text::Levenshtein::XS" : {
          "file" : "lib/Text/Levenshtein/XS.pm",
-         "version" : "0.425"
+         "version" : "0.426"
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/ugexe/Text--Levenshtein--XS/issues"
@@ -137,7 +138,7 @@
          "web" : "https://github.com/ugexe/Text--Levenshtein--XS"
       }
    },
-   "version" : "0.425",
+   "version" : "0.426",
    "x_BuiltWith" : {
       "failures" : {
          "Dist::Zilla::Plugin::ReportPhase" : "Module::MetaData could not parse a version from /home/nickl/perl5/perlbrew/perls/perl-5.20.0/lib/site_perl/5.20.0/Dist/Zilla/Plugin/ReportPhase.pm"
@@ -202,6 +203,7 @@
          "Dist::Zilla::Plugin::Test::Synopsis" : "2.000005",
          "Dist::Zilla::Plugin::Test::Version" : "0.002004",
          "Dist::Zilla::Plugin::TestRelease" : "5.020",
+         "Dist::Zilla::Plugin::UploadToCPAN" : "5.020",
          "Exporter" : "5.70",
          "ExtUtils::MakeMaker" : "6.98",
          "File::Spec" : "3.47",
@@ -665,6 +667,11 @@
             "version" : "0.022"
          },
          {
+            "class" : "Dist::Zilla::Plugin::UploadToCPAN",
+            "name" : "UploadToCPAN",
+            "version" : "5.020"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::ArchiveRelease",
             "name" : "ArchiveRelease",
             "version" : "4.00"
@@ -726,7 +733,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "v0.425",
+                  "tag" : "v0.426",
                   "tag_format" : "v%v",
                   "tag_message" : "Tagged release %v",
                   "time_zone" : "local"
@@ -813,7 +820,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "1"
+            "is_trial" : "0"
          },
          "version" : "5.020"
       }
