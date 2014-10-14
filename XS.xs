@@ -72,7 +72,13 @@ PPCODE:
             /* v1[0] == index of current distance of v1 (i.e. v1[v1[0]] == current distance) */
             //warn("i:%d j:%d mdx:%d lenSource:%d lenTarget:%d, v1[0]:%d v1[v1[0]]:%d diff:%d final:%d", i,j,mdx,lenSource,lenTarget,v1[0],v1[v1[0]],diff,(v1[v1[0]] + diff));
             if( v1[0] == j ) {
-                if( j <= lenSource && mdx < (MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff) + ((lenSource > lenTarget) ? (0 - diff + 1) : (diff - 1)) ) ) {
+                if( lenSource == lenTarget ) {
+                    if( mdx < v1[v0]] ) {
+                        undef = 1;
+                        break;
+                    }
+                }
+                else if( j <= lenSource && mdx < (MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff) + ((lenSource > lenTarget) ? (0 - diff + 1) : (diff - 1)) ) ) {
                     warn("i:%d j:%d mdx:%d lenSource:%d lenTarget:%d, v1[0]:%d v1[v1[0]]:%d diff:%d final:%d", i,j,mdx,lenSource,lenTarget,v1[0],v1[v1[0]],diff, (MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff) + 1)  );
                     warn("hey:%d", (MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff) + ((lenSource > lenTarget) ? (0 - diff + 1) : (diff - 1)) ));
  
