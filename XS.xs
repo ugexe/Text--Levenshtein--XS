@@ -80,7 +80,7 @@ PPCODE:
                     }
                 }
                 else if( lenSource > lenTarget ) {
-                    if( mdx < (MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff)) ) {
+                    if( mdx < v1[v1[0]] + ((j > diff) ? 0 : diff) ) ) {
                         warn("FIRST BLOCK");
                         /* return undef if max distance has been exceeded by current lowest possible distance */
                         undef = 1;
