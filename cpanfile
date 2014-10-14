@@ -78,6 +78,7 @@ on 'develop' => sub {
   requires "Dist::Zilla::Plugin::Test::Synopsis" => "0";
   requires "Dist::Zilla::Plugin::Test::Version" => "0";
   requires "Dist::Zilla::Plugin::TestRelease" => "0";
+  requires "Dist::Zilla::Plugin::UploadToCPAN" => "0";
   requires "Pod::Coverage::TrustPod" => "0";
   requires "Test::CPAN::Changes" => "0.19";
   requires "Test::CPAN::Meta" => "0";
