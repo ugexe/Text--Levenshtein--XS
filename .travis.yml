@@ -21,7 +21,7 @@ before_install:
     - git clone git://github.com/travis-perl/helpers.git ~/travis-perl-helpers
     - source ~/travis-perl-helpers/init
     - build-perl
-    - dzil authordeps --missing | cpanm --no-interactive --no-man-pages --notest --skip-satisfied
+    - dzil authordeps --missing | cpanm --no-interactive --no-man-pages --notest --skip-satisfied -v
     - perl -V
     - build-dist
     - cd $BUILD_DIR  
