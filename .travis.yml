@@ -19,6 +19,7 @@ before_install:
     - source ~/travis-perl-helpers/init
     - build-perl
     - perl -V
+    - git config --global user.name "Text::Levenshtein::XS"
     - build-dist
 install:
     - cpan-install --deps       # installs prereqs, including recommends
