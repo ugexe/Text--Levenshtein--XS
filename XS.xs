@@ -78,7 +78,7 @@ PPCODE:
                 }
                 else if( j >= lenSource && mdx < (v1[v1[0]] + (MAX(diff,j) - MIN(diff,j) - 1)) ) {
                     /* we can look at the length difference along with the current distance to determine a minimum distance */
-                    undef = 1;
+                    undef = 11;
                     break;
                 }
             }
@@ -91,7 +91,7 @@ PPCODE:
     }
 
     /* don't check md here so that if something is wrong with the earlier short circuit the tests will catch it */
-    XPUSHs(sv_2mortal( (undef == 1) ? &PL_sv_undef : newSVuv(v1[lenTarget]) ));
+    XPUSHs(sv_2mortal( (undef >= 1) ? undef : newSVuv(v1[lenTarget]) ));
 
     Safefree(s);
     Safefree(t);
