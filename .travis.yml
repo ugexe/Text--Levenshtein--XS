@@ -22,6 +22,7 @@ before_install:
     - git config --global user.name "Text::Levenshtein::XS"
     - build-dist
 install:
+    - dzil authordeps --missing | cpan-install
     - cpan-install --deps       # installs prereqs, including recommends
     - cpan-install --coverage   # installs converage prereqs, if enabled
     - cpan-install Test::LeakTrace
