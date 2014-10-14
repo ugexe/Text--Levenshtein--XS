@@ -119,7 +119,7 @@
    "provides" : {
       "Text::Levenshtein::XS" : {
          "file" : "lib/Text/Levenshtein/XS.pm",
-         "version" : "0.424"
+         "version" : "0.425"
       }
    },
    "release_status" : "testing",
@@ -137,7 +137,7 @@
          "web" : "https://github.com/ugexe/Text--Levenshtein--XS"
       }
    },
-   "version" : "0.424",
+   "version" : "0.425",
    "x_BuiltWith" : {
       "failures" : {
          "Dist::Zilla::Plugin::ReportPhase" : "Module::MetaData could not parse a version from /home/nickl/perl5/perlbrew/perls/perl-5.20.0/lib/site_perl/5.20.0/Dist/Zilla/Plugin/ReportPhase.pm"
@@ -726,7 +726,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "v0.424",
+                  "tag" : "v0.425",
                   "tag_format" : "v%v",
                   "tag_message" : "Tagged release %v",
                   "time_zone" : "local"
