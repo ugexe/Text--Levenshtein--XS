@@ -23,7 +23,7 @@ before_install:
     - build-dist
     - cd $BUILD_DIR  
 install:
-    - dzil authordeps --missing | cpanm
+    - dzil authordeps --missing | cpanm --verbose --no-interactive --no-man-pages --notest --skip-satisfied
     - cpan-install --deps       # installs prereqs, including recommends
     - cpan-install --coverage   # installs converage prereqs, if enabled
     - cpan-install Test::LeakTrace
