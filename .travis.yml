@@ -25,6 +25,7 @@ before_install:
     - perl -V
     - build-dist
     - cd $BUILD_DIR  
+    - dzil test --all
 install:
     - cpan-install --deps       # installs prereqs, including recommends
     - cpan-install --coverage   # installs converage prereqs, if enabled
