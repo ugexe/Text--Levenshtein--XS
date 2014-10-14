@@ -78,7 +78,7 @@ subtest 'Text::LevenshteinXS compatability' => sub {
 
 
 subtest 'User supplied tests for bugs' => sub {
-    note("nglenn@cpan.org https://github.com/ugexe/Text--Levenshtein--XS/issues/7"); 
+    note('nglenn@cpan.org https://github.com/ugexe/Text--Levenshtein--XS/issues/7'); 
     is( distance('cuba','thing'),           5,      'test1');
     is( distance('cuba','thing',10),        5,      'test2');
 };
