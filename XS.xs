@@ -80,6 +80,7 @@ PPCODE:
                 if( lenSource == lenTarget ) {
                     /* no need to take length differences into account */
                     if( mdx < v1[v1[0]] ) {
+                        warn("FIRST BLOCK11");
                         undef = 1;
                         break;
                     }
