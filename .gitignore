@@ -1,3 +1,4 @@
+/Text-Levenshtein-XS-*/
 MANIFEST
 MANIFEST.bak
 Makefile
@@ -24,3 +25,4 @@ dll.base
 dll.exp
 *.gz
 *.tar
+

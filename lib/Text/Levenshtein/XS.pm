@@ -1,11 +1,11 @@
 package Text::Levenshtein::XS;
+
 use 5.008;
 use strict;
 use warnings FATAL => 'all';
 require Exporter;
 
 @Text::Levenshtein::XS::ISA       = qw/Exporter/;
-$Text::Levenshtein::XS::VERSION   = qw/0.42_01/;
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
 
 eval {
@@ -15,7 +15,7 @@ eval {
 } or do {
     require DynaLoader;
     DynaLoader::bootstrap(__PACKAGE__, $Text::Levenshtein::XS::VERSION);
-    local *dl_load_flags = sub { 1 }; # Prevent DynaLoader from complaining and croaking
+    sub dl_load_flags {0} # Prevent DynaLoader from complaining and croaking
 };
 
 
@@ -34,16 +34,9 @@ __END__
 
 
 
+# ABSTRACT: Calculate edit distance based on insertion, deletion, substitution, and transposition
+
 =encoding utf8
-
-=head1 NAME
-
-Text::Levenshtein::XS - XS Levenshtein edit distance.
-
-=for HTML 
-    <a href="https://travis-ci.org/ugexe/Text--Levenshtein--XS"><img src="https://travis-ci.org/ugexe/Text--Levenshtein--XS.svg?branch=master"></a>
-    <a href='https://coveralls.io/r/ugexe/Text--Levenshtein--XS?branch=master'><img src='https://coveralls.io/repos/ugexe/Text--Levenshtein--XS/badge.png?branch=master' alt='Coverage Status' /></a>
-=cut
 
 =head1 SYNOPSIS
 
@@ -104,20 +97,23 @@ Drop in replacement for L<Text::LevenshteinXS>
 
 =item * L<Text::Fuzzy>
 
+=item * L<Text::Levenshtein::Flexible>
+
 =back
+
+=head1 REPOSITORY
+
+L<https://github.com/ugexe/Text--Levenshtein--XS>
+
+=for HTML 
+    <a href="https://travis-ci.org/ugexe/Text--Levenshtein--XS"><img src="https://travis-ci.org/ugexe/Text--Levenshtein--XS.svg?branch=master"></a>
+    <a href='https://coveralls.io/r/ugexe/Text--Levenshtein--XS?branch=master'><img src='https://coveralls.io/repos/ugexe/Text--Levenshtein--XS/badge.png?branch=master' alt='Coverage Status' /></a>
+=cut
 
 =head1 BUGS
 
 Please report bugs to:
 
 L<https://github.com/ugexe/Text--Levenshtein--XS/issues>
-
-=head1 AUTHOR
-
-Nick Logan <F<ugexe@cpan.com>>
-
-=head1 LICENSE AND COPYRIGHT
-
-This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
 =cut
