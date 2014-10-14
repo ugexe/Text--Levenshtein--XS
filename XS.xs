@@ -91,7 +91,7 @@ PPCODE:
     }
 
     /* don't check md here so that if something is wrong with the earlier short circuit the tests will catch it */
-    XPUSHs(sv_2mortal( (undef >= 1) ? undef : newSVuv(v1[lenTarget]) ));
+    XPUSHs(sv_2mortal( (undef >= 1) ? newSVuv(undef) : newSVuv(v1[lenTarget]) ));
 
     Safefree(s);
     Safefree(t);
