@@ -30,6 +30,7 @@ subtest 'distance with no max distance' => sub {
 };
 
 subtest 'distance using a max distance' => sub {
+    is( distance('cuba','thing', 3),        5,      'test max distance (nglenn@cpan.org)');
     is( distance('xxx','hhh',  3),          3,      'test distance == maxdistance');
     is( distance('xxx','hhhh', 3),          undef,  'test distance > maxdistance');
     is( distance('xxx','hhhh', 5),          4,      'test distance < maxdistance');
