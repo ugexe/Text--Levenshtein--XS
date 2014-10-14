@@ -7,7 +7,7 @@
 # the same terms as the Perl 5 programming language system itself.
 #
 package Text::Levenshtein::XS;
-$Text::Levenshtein::XS::VERSION = '0.427';
+$Text::Levenshtein::XS::VERSION = '0.427'; # TRIAL
 use 5.008;
 use strict;
 use warnings FATAL => 'all';
