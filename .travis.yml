@@ -24,7 +24,7 @@ before_install:
 install:
     - cpan-install --deps       # installs prereqs, including recommends
     - cpan-install --coverage   # installs converage prereqs, if enabled
-    - dzil authordeps --missing | head -n 1 | cpan-install
+    - dzil authordeps --missing | xargs cpan-install
     - cpan-install Test::LeakTrace
 before_script:
     - coverage-setup
