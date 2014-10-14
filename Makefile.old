@@ -19,9 +19,9 @@
 #     EXE_FILES => []
 #     LICENSE => q[perl]
 #     NAME => q[Text::Levenshtein::XS]
-#     PREREQ_PM => { XSLoader=>q[0], Module::Build=>q[0.28], IPC::Open3=>q[0], utf8=>q[0], File::Spec=>q[0], Exporter=>q[0], warnings=>q[0], IO::Handle=>q[0], strict=>q[0], Test::More=>q[0.88], File::Temp=>q[0] }
-#     TEST_REQUIRES => { File::Temp=>q[0], Test::More=>q[0.88], File::Spec=>q[0], utf8=>q[0], IO::Handle=>q[0], IPC::Open3=>q[0] }
-#     VERSION => q[0.421]
+#     PREREQ_PM => { IO::Handle=>q[0], warnings=>q[0], strict=>q[0], Module::Build=>q[0.28], Exporter=>q[0], Test::More=>q[0.88], File::Temp=>q[0], DynaLoader=>q[0], File::Spec=>q[0], XSLoader=>q[0], IPC::Open3=>q[0], utf8=>q[0] }
+#     TEST_REQUIRES => { IPC::Open3=>q[0], utf8=>q[0], File::Spec=>q[0], IO::Handle=>q[0], Test::More=>q[0.88], File::Temp=>q[0] }
+#     VERSION => q[0.422]
 #     test => { TESTS=>q[t/*.t] }
 
 # --- MakeMaker post_initialize section:
@@ -61,11 +61,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Text::Levenshtein::XS
 NAME_SYM = Text_Levenshtein_XS
-VERSION = 0.421
+VERSION = 0.422
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_421
+VERSION_SYM = 0_422
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.421
+XS_VERSION = 0.422
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -268,7 +268,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Text-Levenshtein-XS
-DISTVNAME = Text-Levenshtein-XS-0.421
+DISTVNAME = Text-Levenshtein-XS-0.422
 
 
 # --- MakeMaker macro section:
@@ -557,8 +557,8 @@ realclean_subdirs :
 # Delete temporary files (via clean) and also delete dist files
 realclean purge ::  clean realclean_subdirs
 	- $(RM_F) \
-	  $(FIRST_MAKEFILE) $(OBJECT) \
-	  $(MAKEFILE_OLD) 
+	  $(FIRST_MAKEFILE) $(MAKEFILE_OLD) \
+	  $(OBJECT) 
 	- $(RM_RF) \
 	  $(DISTVNAME) 
 
@@ -592,11 +592,12 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '    - t' >> META_new.yml
 	$(NOECHO) $(ECHO) '    - inc' >> META_new.yml
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
+	$(NOECHO) $(ECHO) '  DynaLoader: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Exporter: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  XSLoader: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  strict: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  warnings: '\''0'\''' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: '\''0.421'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version: '\''0.422'\''' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 	$(NOECHO) $(ECHO) Generating META.json
 	$(NOECHO) $(ECHO) '{' > META_new.json
@@ -639,6 +640,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      },' >> META_new.json
 	$(NOECHO) $(ECHO) '      "runtime" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '         "requires" : {' >> META_new.json
+	$(NOECHO) $(ECHO) '            "DynaLoader" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Exporter" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "XSLoader" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "strict" : "0",' >> META_new.json
@@ -647,7 +649,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
 	$(NOECHO) $(ECHO) '   "release_status" : "stable",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : "0.421"' >> META_new.json
+	$(NOECHO) $(ECHO) '   "version" : "0.422"' >> META_new.json
 	$(NOECHO) $(ECHO) '}' >> META_new.json
 	-$(NOECHO) $(MV) META_new.json $(DISTVNAME)/META.json
 
@@ -1034,6 +1036,7 @@ ppd :
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Calculate edit distance based on insertion, deletion, substitution, and transposition</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>ugexe &lt;ugexe@cpan.org&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="DynaLoader::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Exporter::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="XSLoader::" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="strict::" />' >> $(DISTNAME).ppd
