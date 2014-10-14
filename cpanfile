@@ -10,7 +10,6 @@ on 'test' => sub {
   requires "IO::Handle" => "0";
   requires "IPC::Open3" => "0";
   requires "Test::More" => "0.88";
-  requires "utf8" => "0";
 };
 
 on 'configure' => sub {
