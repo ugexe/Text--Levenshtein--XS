@@ -4,7 +4,7 @@ Text::Levenshtein::XS - Calculate edit distance based on insertion, deletion, su
 
 # VERSION
 
-version 0.421
+version 0.001
 
 # SYNOPSIS
 
