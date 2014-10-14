@@ -36,6 +36,8 @@ __END__
 
 # ABSTRACT: Calculate edit distance based on insertion, deletion, substitution, and transposition
 
+=for Pod::Coverage dl_load_flags xs_distance
+
 =encoding utf8
 
 =head1 SYNOPSIS
