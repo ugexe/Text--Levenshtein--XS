@@ -97,7 +97,7 @@ PPCODE:
                         undef = 1;
                         break;
                     }
-                    else if( j < lenSource && mdx < (MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff) - 1) ) {
+                    else if( j < lenSource && mdx < (MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff) ) ) {
             warn("i:%d j:%d mdx:%d lenSource:%d lenTarget:%d, v1[0]:%d v1[v1[0]]:%d diff:%d final:%d", i,j,mdx,lenSource,lenTarget,v1[0],v1[v1[0]],diff,(v1[v1[0]] + diff));
 
                         warn("FIRST BLOCK2");
