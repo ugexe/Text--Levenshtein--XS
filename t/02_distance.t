@@ -12,7 +12,8 @@ use strict;
 use warnings FATAL => 'all';
 use Test::More;
 use Text::Levenshtein::XS qw/distance/;
-
+    is( distance("aaaa","aa", 1), undef, "yo");
+=head1
 subtest 'distance with no max distance' => sub { 
     is( distance('four','for'),             1,      'test distance insertion');
     is( distance('four','four'),            0, '     test distance matching');
@@ -81,7 +82,7 @@ subtest 'Testing previous bugs/issues' => sub {
 
     is( distance("aaaa","aa", 1), undef, "yo");
 };
-
+=cut
 # Not quite supported yet
 #my @foo = distance("foo","four","foo","bar");
 #my @bar = (2,0,3);
