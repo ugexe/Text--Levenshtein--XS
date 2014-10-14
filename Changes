@@ -1,6 +1,6 @@
 Revision history for Perl module Text::Levenshtein::XS
 
-0.427     2014-10-14 16:29:14-04:00 America/New_York
+1.000     2014-10-14 16:41:54-04:00 America/New_York
     - Update .travis.yml to build/test properly with Dist::Zilla
 
 0.426     2014-10-14 15:19:12-04:00 America/New_York
