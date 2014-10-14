@@ -20,18 +20,15 @@ before_install:
     - build-perl
     - perl -V
     - build-dist
-    - cd $BUILD_DIR             # $BUILD_DIR is set by the build-dist command
-    - cpan-install --toolchain
 install:
+    - cpan-install --toolchain
     - cpan-install --deps       # installs prereqs, including recommends
     - cpan-install --coverage   # installs converage prereqs, if enabled
     - cpan-install Test::LeakTrace
 before_script:
     - coverage-setup
 script:
-    - perl Makefile.PL
-    - make
-    - prove -b -v -j$((SYSTEM_CORES + 1)) $(test-dirs)
+    - dzil test --release
 after_success:
     - coverage-report
 notifications:
