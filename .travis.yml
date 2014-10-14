@@ -21,10 +21,10 @@ before_install:
     - perl -V
     - git config --global user.name "Text::Levenshtein::XS"
     - build-dist
+    - dzil authordeps --missing | cpanm
 install:
     - cpan-install --deps       # installs prereqs, including recommends
     - cpan-install --coverage   # installs converage prereqs, if enabled
-    - dzil authordeps --missing | xargs cpan-install
     - cpan-install Test::LeakTrace
 before_script:
     - coverage-setup
