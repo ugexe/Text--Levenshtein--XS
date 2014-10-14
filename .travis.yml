@@ -15,6 +15,7 @@ matrix:
   allow_failures:
     - perl: "blead"             # ignore failures for blead perl
 before_install:
+    - dzil authordeps --missing | cpanm --no-interactive --no-man-pages --notest --skip-satisfied
     - git checkout $TRAVIS_BRANCH
     - git reset --hard $TRAVIS_COMMIT
     - git clone git://github.com/travis-perl/helpers.git ~/travis-perl-helpers
@@ -25,7 +26,6 @@ before_install:
     - build-dist
     - cd $BUILD_DIR  
 install:
-    - dzil authordeps --missing | cpanm --no-interactive --no-man-pages --notest --skip-satisfied
     - cpan-install --deps       # installs prereqs, including recommends
     - cpan-install --coverage   # installs converage prereqs, if enabled
     - cpan-install Test::LeakTrace
@@ -40,4 +40,4 @@ notifications:
     - ugexe@cpan.org
     email:
         on_success: change
-        on_failure: always
+        on_failure: change
