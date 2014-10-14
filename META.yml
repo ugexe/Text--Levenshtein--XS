@@ -576,7 +576,7 @@ x_Dist_Zilla:
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
-      is_trial: '0'
+      is_trial: '1'
     version: '5.020'
 x_contributors:
   - 'Nick <nlogan@gmail.com>'
