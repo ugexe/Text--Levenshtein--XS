@@ -78,17 +78,23 @@ PPCODE:
                         break;
                     }
                 }
-                else if( j <= lenSource && mdx < ( MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff) ) ) { 
-                    warn("FIRST BLOCK");
-                    /* return undef if max distance has been exceeded by current lowest possible distance */
-                    undef = 1;
-                    break;
+                else if( lenSource > lenTarget ) {
+                    if( j <= lenSource && mdx < ( MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff) ) ) {
+                        warn("FIRST BLOCK");
+                        /* return undef if max distance has been exceeded by current lowest possible distance */
+                        undef = 1;
+                        break;
+                    }
+                    else if( j > lenSource && mdx < (v1[v1[0]] + diff - j) ) {
+                        warn("SECOND BLOCK");
+                        /* we can look at the length difference along with the current distance to determine a minimum distance */
+                        undef = 1;
+                        break;
+                    }
+
                 }
-                else if( j > lenSource && mdx < (v1[v1[0]] + diff - j) ) {
-                    warn("SECOND BLOCK");
-                    /* we can look at the length difference along with the current distance to determine a minimum distance */
-                    undef = 1;
-                    break;
+                else if( lenTarget > lenSource ) {
+
                 }
             }
         }
