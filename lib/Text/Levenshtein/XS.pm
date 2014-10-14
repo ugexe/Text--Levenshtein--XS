@@ -5,7 +5,7 @@ use strict;
 use warnings FATAL => 'all';
 require Exporter;
 require XSLoader;
-XSLoader::load(__PACKAGE__, $Text::Levenshtein::XS::VERSION);
+XSLoader::load('Text::Levenshtein::XS', $Text::Levenshtein::XS::VERSION);
 
 @Text::Levenshtein::XS::ISA       = qw/Exporter/;
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
