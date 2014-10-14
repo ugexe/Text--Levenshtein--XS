@@ -76,34 +76,12 @@ PPCODE:
             /* alternatively we can set the value for mdx inside this block   */
 
             if( v1[0] == j && md != 0 ) {
-                if( lenSource >= lenTarget ) {
-                    /* no need to take length differences into account */
                     if( mdx < ((diff > v1[v1[0]]) ? (diff - v1[v1[0]]) : (v1[v1[0]] + diff)) ) {
                         warn("FIRST BLOCK11");
                         undef = 1;
                         break;
                     }
-                }
-                else if( lenTarget > lenSource ) {
-                    if( j == lenSource && mdx < ((diff > v1[v1[0]]) ? (diff - v1[v1[0]]) : (v1[v1[0]] + diff)) ) {
-                        warn("FIRST BLOCK22");
-                        /* return undef if max distance has been exceeded by current lowest possible distance */
-                        undef = 1;
-                        break;
-                    }
-                    else if( j < lenSource && mdx < (MAX(v1[v1[0]],diff) - MIN(v1[v1[0]],diff) ) ) {
-                        warn("FIRST BLOCK2");
-                        /* return undef if max distance has been exceeded by current lowest possible distance */
-                        undef = 1;
-                        break;
-                    }
-                    else if( j > lenSource && mdx < (v1[v1[0]] - diff + j) ) {
-                        warn("SECOND BLOCK2");
-                        /* we can look at the length difference along with the current distance to determine a minimum distance */
-                        undef = 1;
-                        break;
-                    }
-                }
+
             }
         }
 
