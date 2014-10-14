@@ -91,10 +91,20 @@ PPCODE:
                         undef = 1;
                         break;
                     }
-
                 }
                 else if( lenTarget > lenSource ) {
-
+                    if( j <= lenSource && mdx < (v1[v1[0]] + diff) ) ) {
+                        warn("FIRST BLOCK2");
+                        /* return undef if max distance has been exceeded by current lowest possible distance */
+                        undef = 1;
+                        break;
+                    }
+                    else if( j > lenSource && mdx < (v1[v1[0]] - diff + j) ) {
+                        warn("SECOND BLOCK2");
+                        /* we can look at the length difference along with the current distance to determine a minimum distance */
+                        undef = 1;
+                        break;
+                    }
                 }
             }
         }
