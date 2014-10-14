@@ -76,20 +76,10 @@ PPCODE:
             /* alternatively we can set the value for mdx inside this block   */
 
             if( v1[0] == j && md != 0 ) {
-                if( lenSource == lenTarget ) {
+                if( lenSource >= lenTarget ) {
                     /* no need to take length differences into account */
-                    if( mdx < v1[v1[0]] ) {
-                        warn("FIRST BLOCK11");
-                        undef = 1;
-                        break;
-                    }
-                }
-                else if( lenSource > lenTarget ) {
-                    warn("i:%d j:%d mdx:%d lenSource:%d lenTarget:%d, v1[0]:%d v1[v1[0]]:%d diff:%d final:%d", i,j,mdx,lenSource,lenTarget,v1[0],v1[v1[0]],diff,(v1[v1[0]] + diff));
-
                     if( mdx < ((diff > v1[v1[0]]) ? (diff - v1[v1[0]]) : (v1[v1[0]] + diff)) ) {
-                        warn("FIRST BLOCK");
-                        /* return undef if max distance has been exceeded by current lowest possible distance */
+                        warn("FIRST BLOCK11");
                         undef = 1;
                         break;
                     }
