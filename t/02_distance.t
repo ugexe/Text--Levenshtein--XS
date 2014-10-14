@@ -80,7 +80,7 @@ subtest 'Text::LevenshteinXS compatability' => sub {
 subtest 'User supplied tests for bugs' => sub {
     is( distance('cuba','thing'),           5,      'nglenn@cpan.org https://github.com/ugexe/Text--Levenshtein--XS/issues/7');    
     is( distance('cuba','thing',10),        5,      'nglenn@cpan.org https://github.com/ugexe/Text--Levenshtein--XS/issues/7');    
-}
+};
 # Not quite supported yet
 #my @foo = distance("foo","four","foo","bar");
 #my @bar = (2,0,3);
