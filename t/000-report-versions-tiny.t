@@ -57,7 +57,6 @@ eval { $v .= pmver('IPC::Open3','any version') };
 eval { $v .= pmver('Test::More','0.88') };
 eval { $v .= pmver('XSLoader','any version') };
 eval { $v .= pmver('strict','any version') };
-eval { $v .= pmver('utf8','any version') };
 eval { $v .= pmver('warnings','any version') };
 
 
