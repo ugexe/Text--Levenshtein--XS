@@ -4,19 +4,11 @@ use 5.008;
 use strict;
 use warnings FATAL => 'all';
 require Exporter;
+require XSLoader;
+XSLoader::load(__PACKAGE__, $Text::Levenshtein::XS::VERSION);
 
 @Text::Levenshtein::XS::ISA       = qw/Exporter/;
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
-
-eval {
-    require XSLoader;
-    XSLoader::load(__PACKAGE__, $Text::Levenshtein::XS::VERSION);
-    1;
-} or do {
-    require DynaLoader;
-    DynaLoader::bootstrap(__PACKAGE__, $Text::Levenshtein::XS::VERSION);
-    sub dl_load_flags {0} # Prevent DynaLoader from complaining and croaking
-};
 
 
 
