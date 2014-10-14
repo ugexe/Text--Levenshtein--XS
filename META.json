@@ -637,6 +637,11 @@
             "version" : "5.020"
          },
          {
+            "class" : "Dist::Zilla::Plugin::CheckPrereqsIndexed",
+            "name" : "CheckPrereqsIndexed",
+            "version" : "0.012"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::CheckChangesHasContent",
             "name" : "CheckChangesHasContent",
             "version" : "0.006"
@@ -644,16 +649,6 @@
          {
             "class" : "Dist::Zilla::Plugin::TestRelease",
             "name" : "TestRelease",
-            "version" : "5.020"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::CheckPrereqsIndexed",
-            "name" : "CheckPrereqsIndexed",
-            "version" : "0.012"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::ConfirmRelease",
-            "name" : "ConfirmRelease",
             "version" : "5.020"
          },
          {
@@ -665,6 +660,11 @@
             },
             "name" : "RunExtraTests",
             "version" : "0.022"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::ConfirmRelease",
+            "name" : "ConfirmRelease",
+            "version" : "5.020"
          },
          {
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
