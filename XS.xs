@@ -72,7 +72,9 @@ PPCODE:
             /* v1[0] == index of current distance of v1 (i.e. v1[v1[0]] == current distance) */
             warn("i:%d j:%d mdx:%d lenSource:%d lenTarget:%d, v1[0]:%d v1[v1[0]]:%d diff:%d final:%d", i,j,mdx,lenSource,lenTarget,v1[0],v1[v1[0]],diff,(v1[v1[0]] + diff));
 
-            if( v1[0] == j && mdx < MAX(lenSource,lenTarget) ) {
+            /* md != 0 lets us only check if the user supplied a max distance */
+            /* alternatively we can set the value for mdx inside this block   */
+            if( v1[0] == j && md != 0 ) {
                 if( lenSource == lenTarget ) {
                     /* no need to take length differences into account */
                     if( mdx < v1[v1[0]] ) {
