@@ -12,18 +12,14 @@ use ExtUtils::MakeMaker ;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Calculate edit distance based on insertion, deletion, substitution, and transposition",
   "AUTHOR" => "ugexe <ugexe\@cpan.org>",
-  "BUILD_REQUIRES" => {
-    "Module::Build" => "0.28"
-  },
   "CONFIGURE_REQUIRES" => {
-    "Module::Build" => "0.28"
+    "ExtUtils::MakeMaker" => 0
   },
   "DISTNAME" => "Text-Levenshtein-XS",
   "EXE_FILES" => [],
   "LICENSE" => "perl",
   "NAME" => "Text::Levenshtein::XS",
   "PREREQ_PM" => {
-    "DynaLoader" => 0,
     "Exporter" => 0,
     "XSLoader" => 0,
     "strict" => 0,
@@ -37,7 +33,7 @@ my %WriteMakefileArgs = (
     "Test::More" => "0.88",
     "utf8" => 0
   },
-  "VERSION" => "0.422",
+  "VERSION" => "0.423",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -45,13 +41,11 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "DynaLoader" => 0,
   "Exporter" => 0,
   "File::Spec" => 0,
   "File::Temp" => 0,
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
-  "Module::Build" => "0.28",
   "Test::More" => "0.88",
   "XSLoader" => 0,
   "strict" => 0,
