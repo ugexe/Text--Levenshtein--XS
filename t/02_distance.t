@@ -77,8 +77,6 @@ subtest 'Text::LevenshteinXS compatability' => sub {
 };
 
 subtest 'Testing previous bugs/issues' => sub {
-    is( distance('xxx','hhhh', 3),          undef,  'test distance > maxdistance');
-
     is( distance('cuba','thing'), distance('cuba','thing',10), 'nglenn@cpan.org https://github.com/ugexe/Text--Levenshtein--XS/issues/7');
 };
 
