@@ -73,13 +73,13 @@ PPCODE:
             warn("i:%d j:%d mdx:%d lenSource:%d lenTarget:%d, v1[0]:%d v1[v1[0]]:%d diff:%d final:%d", i,j,mdx,lenSource,lenTarget,v1[0],v1[v1[0]],diff,(v1[v1[0]] + diff));
 
             if( v1[0] == j ) {
-                if( lenTarget == lenSource && mdx < v1[v1[0]] ) {
+                if( j <= lenSource && mdx < (v1[v1[0]] + diff) ) {
                     warn("FIRST BLOCK");
                     /* return undef if max distance has been exceeded by current lowest possible distance */
                     undef = 1;
                     break;
                 }
-                else if( j >= lenSource && mdx < (v1[v1[0]] + diff) ) {
+                else if( j > lenSource && mdx < (v1[v1[0]] + diff - j) ) {
                     warn("SECOND BLOCK");
                     /* we can look at the length difference along with the current distance to determine a minimum distance */
                     undef = 1;
