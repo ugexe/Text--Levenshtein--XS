@@ -76,7 +76,7 @@ PPCODE:
                     undef = 1;
                     break;
                 }
-                else if( j > lenSource && mdx < (v1[v1[0]] + (MAX(diff,j) - MIN(j,diff) - 1)) ) {
+                else if( j >= lenSource && mdx < (v1[v1[0]] + (MAX(diff,j) - MIN(j,diff) - 1)) ) {
                     warn("i:%d j:%d mdx:%d lenSource:%d lenTarget:%d, v1[0]:%d v1[v1[0]]:%d diff:%d final:%d", i,j,mdx,lenSource,lenTarget,v1[0],v1[v1[0]],diff,(v1[v1[0]] + (MAX(diff,j) - MIN(diff,j) - 1)));
                     /* we can look at the length difference along with the current distance to determine a minimum distance */
                     undef = 1;
