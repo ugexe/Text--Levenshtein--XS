@@ -79,7 +79,7 @@ PPCODE:
                     undef = 1;
                     break;
                 }
-                else if( j >= lenSource && mdx < (v1[v1[0]] + diff) ) {
+                else if( j >= lenSource && mdx < (v1[v1[0]] + diff + 1) ) {
                     warn("SECOND BLOCK");
                     /* we can look at the length difference along with the current distance to determine a minimum distance */
                     undef = 1;
