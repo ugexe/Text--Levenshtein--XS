@@ -19,7 +19,7 @@ matrix:
 before_install:
    - 'ls'
    - 'dir'
-   - 'mkdir .build/testing'
+   - 'mkdir .build && mkdir .build/testing'
    - 'if [[ $BUILD == 1 && ! -d .build/testing ]]; then unset BUILD; fi'
    - 'if [[ $BUILD == 0 ]]; then export AUTOMATED_TESTING=1 NONINTERACTIVE_TESTING=1 HARNESS_OPTIONS=j10:c HARNESS_TIMER=1; fi'
    - 'if [[ $BUILD == 0 ]]; then git clone git://github.com/haarg/perl-travis-helper; fi'
