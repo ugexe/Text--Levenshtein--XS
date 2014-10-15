@@ -39,6 +39,7 @@ on 'develop' => sub {
   requires "Dist::Zilla::Plugin::MetaData::BuiltWith" => "0";
   requires "Dist::Zilla::Plugin::MetaJSON" => "0";
   requires "Dist::Zilla::Plugin::MetaNoIndex" => "0";
+  requires "Dist::Zilla::Plugin::MetaProvides::Package" => "0";
   requires "Dist::Zilla::Plugin::MetaResources" => "0";
   requires "Dist::Zilla::Plugin::MetaTests" => "0";
   requires "Dist::Zilla::Plugin::MetaYAML" => "0";
