@@ -28,7 +28,6 @@ on 'develop' => sub {
   requires "Dist::Zilla::Plugin::GenerateFile" => "0";
   requires "Dist::Zilla::Plugin::Git::Commit" => "0";
   requires "Dist::Zilla::Plugin::Git::CommitBuild" => "0";
-  requires "Dist::Zilla::Plugin::Git::NextVersion" => "0";
   requires "Dist::Zilla::Plugin::Git::Push" => "0";
   requires "Dist::Zilla::Plugin::Git::Tag" => "0";
   requires "Dist::Zilla::Plugin::License" => "0";

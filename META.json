@@ -41,7 +41,6 @@
             "Dist::Zilla::Plugin::GenerateFile" : "0",
             "Dist::Zilla::Plugin::Git::Commit" : "0",
             "Dist::Zilla::Plugin::Git::CommitBuild" : "0",
-            "Dist::Zilla::Plugin::Git::NextVersion" : "0",
             "Dist::Zilla::Plugin::Git::Push" : "0",
             "Dist::Zilla::Plugin::Git::Tag" : "0",
             "Dist::Zilla::Plugin::License" : "0",
@@ -124,7 +123,7 @@
          "web" : "https://github.com/ugexe/Text--Levenshtein--XS"
       }
    },
-   "version" : "0.429",
+   "version" : "0.43",
    "x_BuiltWith" : {
       "failures" : {
          "Dist::Zilla::Plugin::ReportPhase" : "Module::MetaData could not parse a version from /home/nickl/perl5/perlbrew/perls/perl-5.20.0/lib/site_perl/5.20.0/Dist/Zilla/Plugin/ReportPhase.pm"
@@ -145,7 +144,6 @@
          "Dist::Zilla::Plugin::GenerateFile" : "5.020",
          "Dist::Zilla::Plugin::Git::Commit" : "2.025",
          "Dist::Zilla::Plugin::Git::CommitBuild" : "2.025",
-         "Dist::Zilla::Plugin::Git::NextVersion" : "2.025",
          "Dist::Zilla::Plugin::Git::Push" : "2.025",
          "Dist::Zilla::Plugin::Git::Tag" : "2.025",
          "Dist::Zilla::Plugin::License" : "5.020",
@@ -227,21 +225,6 @@
             },
             "name" : "Phase_Begins",
             "version" : "0.03"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Git::NextVersion",
-            "config" : {
-               "Dist::Zilla::Plugin::Git::NextVersion" : {
-                  "first_version" : "0.001",
-                  "version_by_branch" : "1",
-                  "version_regexp" : "(?^:^v(.+)$)"
-               },
-               "Dist::Zilla::Role::Git::Repo" : {
-                  "repo_root" : "."
-               }
-            },
-            "name" : "Git::NextVersion",
-            "version" : "2.025"
          },
          {
             "class" : "Dist::Zilla::Plugin::GatherDir",
@@ -695,7 +678,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "v0.429",
+                  "tag" : "v0.43",
                   "tag_format" : "v%v",
                   "tag_message" : "Tagged release %v",
                   "time_zone" : "local"
