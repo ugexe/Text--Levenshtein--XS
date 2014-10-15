@@ -3,7 +3,7 @@ NAME
     deletion, substitution, and transposition
 
 VERSION
-    version 0.427
+    version 0.428
 
 SYNOPSIS
         use Text::Levenshtein::XS qw/distance/;

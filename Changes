@@ -1,5 +1,8 @@
 Revision history for Perl module Text::Levenshtein::XS
 
+0.428     2014-10-14 22:44:32-04:00 America/New_York
+    - Removed travis-ci/coveralls badges until I figure out Dist::Zilla better
+
 0.427     2014-10-14 22:31:47-04:00 America/New_York
     - Update .travis.yml to build/test properly with Dist::Zilla
 
