@@ -1,5 +1,6 @@
 # Top-level filter (only include the following...)
 ^(MYMETA\.(?:yml|json)|Makefile|pm_to_blib|.*\.o|.*\.c|.*\.bs|blib/.*)$
+^\.
 # Avoid version control files.
 \bRCS\b
 \bCVS\b
