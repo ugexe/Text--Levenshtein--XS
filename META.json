@@ -52,6 +52,7 @@
             "Dist::Zilla::Plugin::MetaData::BuiltWith" : "0",
             "Dist::Zilla::Plugin::MetaJSON" : "0",
             "Dist::Zilla::Plugin::MetaNoIndex" : "0",
+            "Dist::Zilla::Plugin::MetaProvides::Package" : "0",
             "Dist::Zilla::Plugin::MetaResources" : "0",
             "Dist::Zilla::Plugin::MetaTests" : "0",
             "Dist::Zilla::Plugin::MetaYAML" : "0",
@@ -109,6 +110,12 @@
          }
       }
    },
+   "provides" : {
+      "Text::Levenshtein::XS" : {
+         "file" : "lib/Text/Levenshtein/XS.pm",
+         "version" : "0.44"
+      }
+   },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
@@ -156,6 +163,7 @@
          "Dist::Zilla::Plugin::MetaData::BuiltWith" : "1.003001",
          "Dist::Zilla::Plugin::MetaJSON" : "5.020",
          "Dist::Zilla::Plugin::MetaNoIndex" : "5.020",
+         "Dist::Zilla::Plugin::MetaProvides::Package" : "2.001002",
          "Dist::Zilla::Plugin::MetaResources" : "5.020",
          "Dist::Zilla::Plugin::MetaTests" : "5.020",
          "Dist::Zilla::Plugin::MetaYAML" : "5.020",
@@ -543,6 +551,27 @@
             "version" : "5.020"
          },
          {
+            "class" : "Dist::Zilla::Plugin::MetaProvides::Package",
+            "config" : {
+               "Dist::Zilla::Plugin::MetaProvides::Package" : {
+                  "finder_objects" : [
+                     {
+                        "class" : "Dist::Zilla::Plugin::FinderCode",
+                        "name" : "MetaProvides::Package/AUTOVIV/:InstallModulesPM",
+                        "version" : "5.020"
+                     }
+                  ]
+               },
+               "Dist::Zilla::Role::MetaProvider::Provider" : {
+                  "inherit_missing" : "1",
+                  "inherit_version" : "1",
+                  "meta_noindex" : "1"
+               }
+            },
+            "name" : "MetaProvides::Package",
+            "version" : "2.001002"
+         },
+         {
             "class" : "Dist::Zilla::Plugin::License",
             "name" : "License",
             "version" : "5.020"
@@ -771,6 +800,11 @@
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":NoFiles",
+            "version" : "5.020"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::FinderCode",
+            "name" : "MetaProvides::Package/AUTOVIV/:InstallModulesPM",
             "version" : "5.020"
          }
       ],
