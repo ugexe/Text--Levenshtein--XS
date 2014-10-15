@@ -5,7 +5,7 @@ author:
 build_requires:
   File::Spec: '0'
   File::Temp: '0'
-  IO::Handle: 1.27_02
+  IO::Handle: '0'
   IPC::Open3: '0'
   Test::More: '0.88'
 configure_requires:
@@ -25,7 +25,7 @@ provides:
     file: lib/Text/Levenshtein/XS.pm
     version: '0.427'
 requires:
-  perl: '5.008009'
+  perl: '5.8'
 resources:
   bugtracker: https://github.com/ugexe/Text--Levenshtein--XS/issues
   homepage: https://metacpan.org/release/Text-Levenshtein-XS

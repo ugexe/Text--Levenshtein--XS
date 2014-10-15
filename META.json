@@ -99,14 +99,14 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.008009"
+            "perl" : "5.8"
          }
       },
       "test" : {
          "requires" : {
             "File::Spec" : "0",
             "File::Temp" : "0",
-            "IO::Handle" : "1.27_02",
+            "IO::Handle" : "0",
             "IPC::Open3" : "0",
             "Test::More" : "0.88"
          }
