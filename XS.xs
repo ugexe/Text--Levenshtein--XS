@@ -41,7 +41,7 @@ PPCODE:
         }
     }
 
-    if (diff > mdx) {
+    if (md != 0 && diff > mdx) {
         XPUSHs(sv_2mortal(&PL_sv_undef));
         XSRETURN(1);
     }
