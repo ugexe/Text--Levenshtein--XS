@@ -99,11 +99,6 @@ Drop in replacement for L<Text::LevenshteinXS>
 
 L<https://github.com/ugexe/Text--Levenshtein--XS>
 
-=for HTML 
-    <a href="https://travis-ci.org/ugexe/Text--Levenshtein--XS?branch=release"><img src="https://travis-ci.org/ugexe/Text--Levenshtein--XS.svg?branch=release"></a>
-    <a href='https://coveralls.io/r/ugexe/Text--Levenshtein--XS?branch=release'><img src='https://coveralls.io/repos/ugexe/Text--Levenshtein--XS/badge.png?branch=release' alt='Coverage Status' /></a>
-=cut
-
 =head1 BUGS
 
 Please report bugs to:
