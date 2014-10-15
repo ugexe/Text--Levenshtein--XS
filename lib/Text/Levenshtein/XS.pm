@@ -7,7 +7,7 @@
 # the same terms as the Perl 5 programming language system itself.
 #
 package Text::Levenshtein::XS;
-$Text::Levenshtein::XS::VERSION = '0.427';
+$Text::Levenshtein::XS::VERSION = '0.428';
 use 5.008;
 use strict;
 use warnings FATAL => 'all';
@@ -38,7 +38,7 @@ Text::Levenshtein::XS - Calculate edit distance based on insertion, deletion, su
 
 =head1 VERSION
 
-version 0.427
+version 0.428
 
 =head1 SYNOPSIS
 
@@ -109,9 +109,6 @@ Drop in replacement for L<Text::LevenshteinXS>
 
 L<https://github.com/ugexe/Text--Levenshtein--XS>
 
-=for HTML <a href="https://travis-ci.org/ugexe/Text--Levenshtein--XS?branch=release"><img src="https://travis-ci.org/ugexe/Text--Levenshtein--XS.svg?branch=release"></a>
-    <a href='https://coveralls.io/r/ugexe/Text--Levenshtein--XS?branch=release'><img src='https://coveralls.io/repos/ugexe/Text--Levenshtein--XS/badge.png?branch=release' alt='Coverage Status' /></a>
-
 =head1 BUGS
 
 Please report bugs to:
@@ -136,5 +133,4 @@ __END__
 
 
 # ABSTRACT: Calculate edit distance based on insertion, deletion, substitution, and transposition
-
 

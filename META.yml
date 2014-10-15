@@ -27,7 +27,7 @@ resources:
   homepage: https://metacpan.org/release/Text-Levenshtein-XS
   license: http://dev.perl.org/licenses/
   repository: https://github.com/ugexe/Text--Levenshtein--XS
-version: '0.427'
+version: '0.428'
 x_BuiltWith:
   failures:
     Dist::Zilla::Plugin::ReportPhase: 'Module::MetaData could not parse a version from /home/nickl/perl5/perlbrew/perls/perl-5.20.0/lib/site_perl/5.20.0/Dist/Zilla/Plugin/ReportPhase.pm'
@@ -489,7 +489,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: '0'
-          tag: v0.427
+          tag: v0.428
           tag_format: v%v
           tag_message: 'Tagged release %v'
           time_zone: local
