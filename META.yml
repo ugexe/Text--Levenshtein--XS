@@ -5,10 +5,9 @@ author:
 build_requires:
   File::Spec: '0'
   File::Temp: '0'
-  IO::Handle: '0'
+  IO::Handle: 1.27_02
   IPC::Open3: '0'
   Test::More: '0.88'
-  utf8: '0'
 configure_requires:
   ExtUtils::MakeMaker: '0'
 dynamic_config: '0'
@@ -24,19 +23,15 @@ no_index:
 provides:
   Text::Levenshtein::XS:
     file: lib/Text/Levenshtein/XS.pm
-    version: '1.000'
+    version: '0.427'
 requires:
-  Exporter: '0'
-  XSLoader: '0'
-  perl: '5.008'
-  strict: '0'
-  warnings: '0'
+  perl: '5.008009'
 resources:
   bugtracker: https://github.com/ugexe/Text--Levenshtein--XS/issues
   homepage: https://metacpan.org/release/Text-Levenshtein-XS
   license: http://dev.perl.org/licenses/
   repository: https://github.com/ugexe/Text--Levenshtein--XS
-version: '1.000'
+version: '0.427'
 x_BuiltWith:
   failures:
     Dist::Zilla::Plugin::ReportPhase: 'Module::MetaData could not parse a version from /home/nickl/perl5/perlbrew/perls/perl-5.20.0/lib/site_perl/5.20.0/Dist/Zilla/Plugin/ReportPhase.pm'
@@ -72,7 +67,6 @@ x_BuiltWith:
     Dist::Zilla::Plugin::MetaTests: '5.020'
     Dist::Zilla::Plugin::MetaYAML: '5.020'
     Dist::Zilla::Plugin::Metadata: '3.03'
-    Dist::Zilla::Plugin::MinimumPerl: '1.003'
     Dist::Zilla::Plugin::MojibakeTests: '0.7'
     Dist::Zilla::Plugin::NextRelease: '5.020'
     Dist::Zilla::Plugin::PkgVersion: '5.020'
@@ -100,7 +94,8 @@ x_BuiltWith:
     Dist::Zilla::Plugin::Test::Synopsis: '2.000005'
     Dist::Zilla::Plugin::Test::Version: '0.002004'
     Dist::Zilla::Plugin::TestRelease: '5.020'
-    Exporter: '5.70'
+    Dist::Zilla::Plugin::TravisYML: '1.12'
+    Dist::Zilla::PluginBundle::Prereqs: '0.93'
     ExtUtils::MakeMaker: '6.98'
     File::Spec: '3.47'
     File::Temp: '0.2304'
@@ -114,11 +109,7 @@ x_BuiltWith:
     Test::Pod: '1.48'
     Test::Pod::Coverage: '1.10'
     Test::Synopsis: '0.11'
-    XSLoader: '0.17'
-    strict: '1.08'
-    utf8: '1.13'
     version: '0.9909'
-    warnings: '1.23'
   perl:
     original: v5.20.0
     qv: 1
@@ -142,7 +133,7 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::Git::NextVersion
       config:
         Dist::Zilla::Plugin::Git::NextVersion:
-          first_version: '0.001'
+          first_version: '420'
           version_by_branch: '1'
           version_regexp: (?^:^v(.+)$)
         Dist::Zilla::Role::Git::Repo:
@@ -165,6 +156,26 @@ x_Dist_Zilla:
       class: Dist::Zilla::Plugin::Prereqs::AuthorDeps
       name: Prereqs::AuthorDeps
       version: '0.003'
+    -
+      class: Dist::Zilla::Plugin::AutoPrereqs
+      name: '@Prereqs/AutoPrereqs'
+      version: '5.020'
+    -
+      class: Dist::Zilla::Plugin::MinimumPerl
+      name: '@Prereqs/MinimumPerl'
+      version: '1.003'
+    -
+      class: Dist::Zilla::Plugin::MinimumPrereqs
+      name: '@Prereqs/MinimumPrereqs'
+      version: '0.93'
+    -
+      class: Dist::Zilla::Plugin::PrereqsClean
+      name: '@Prereqs/PrereqsClean'
+      version: '0.93'
+    -
+      class: Dist::Zilla::Plugin::TravisYML
+      name: TravisYML
+      version: '1.12'
     -
       class: Dist::Zilla::Plugin::CPANFile
       name: CPANFile
@@ -349,10 +360,6 @@ x_Dist_Zilla:
       name: NextRelease
       version: '5.020'
     -
-      class: Dist::Zilla::Plugin::MinimumPerl
-      name: MinimumPerl
-      version: '1.003'
-    -
       class: Dist::Zilla::Plugin::Metadata
       name: Metadata
       version: '3.03'
@@ -485,6 +492,7 @@ x_Dist_Zilla:
             - dist.ini
             - Makefile.PL
             - cpanfile
+            - .travis.tml
           allow_dirty_match: []
           changelog: Changes
         Dist::Zilla::Role::Git::Repo:
@@ -511,7 +519,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: '0'
-          tag: v1.000
+          tag: v0.427
           tag_format: v%v
           tag_message: 'Tagged release %v'
           time_zone: local

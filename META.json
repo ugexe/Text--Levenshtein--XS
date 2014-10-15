@@ -57,7 +57,6 @@
             "Dist::Zilla::Plugin::MetaTests" : "0",
             "Dist::Zilla::Plugin::MetaYAML" : "0",
             "Dist::Zilla::Plugin::Metadata" : "0",
-            "Dist::Zilla::Plugin::MinimumPerl" : "0",
             "Dist::Zilla::Plugin::MojibakeTests" : "0",
             "Dist::Zilla::Plugin::NextRelease" : "0",
             "Dist::Zilla::Plugin::PkgVersion" : "5.012",
@@ -86,6 +85,8 @@
             "Dist::Zilla::Plugin::Test::Synopsis" : "0",
             "Dist::Zilla::Plugin::Test::Version" : "0",
             "Dist::Zilla::Plugin::TestRelease" : "0",
+            "Dist::Zilla::Plugin::TravisYML" : "0",
+            "Dist::Zilla::PluginBundle::Prereqs" : "0",
             "Pod::Coverage::TrustPod" : "0",
             "Test::CPAN::Changes" : "0.19",
             "Test::CPAN::Meta" : "0",
@@ -98,28 +99,23 @@
       },
       "runtime" : {
          "requires" : {
-            "Exporter" : "0",
-            "XSLoader" : "0",
-            "perl" : "5.008",
-            "strict" : "0",
-            "warnings" : "0"
+            "perl" : "5.008009"
          }
       },
       "test" : {
          "requires" : {
             "File::Spec" : "0",
             "File::Temp" : "0",
-            "IO::Handle" : "0",
+            "IO::Handle" : "1.27_02",
             "IPC::Open3" : "0",
-            "Test::More" : "0.88",
-            "utf8" : "0"
+            "Test::More" : "0.88"
          }
       }
    },
    "provides" : {
       "Text::Levenshtein::XS" : {
          "file" : "lib/Text/Levenshtein/XS.pm",
-         "version" : "1.000"
+         "version" : "0.427"
       }
    },
    "release_status" : "stable",
@@ -137,7 +133,7 @@
          "web" : "https://github.com/ugexe/Text--Levenshtein--XS"
       }
    },
-   "version" : "1.000",
+   "version" : "0.427",
    "x_BuiltWith" : {
       "failures" : {
          "Dist::Zilla::Plugin::ReportPhase" : "Module::MetaData could not parse a version from /home/nickl/perl5/perlbrew/perls/perl-5.20.0/lib/site_perl/5.20.0/Dist/Zilla/Plugin/ReportPhase.pm"
@@ -174,7 +170,6 @@
          "Dist::Zilla::Plugin::MetaTests" : "5.020",
          "Dist::Zilla::Plugin::MetaYAML" : "5.020",
          "Dist::Zilla::Plugin::Metadata" : "3.03",
-         "Dist::Zilla::Plugin::MinimumPerl" : "1.003",
          "Dist::Zilla::Plugin::MojibakeTests" : "0.7",
          "Dist::Zilla::Plugin::NextRelease" : "5.020",
          "Dist::Zilla::Plugin::PkgVersion" : "5.020",
@@ -202,7 +197,8 @@
          "Dist::Zilla::Plugin::Test::Synopsis" : "2.000005",
          "Dist::Zilla::Plugin::Test::Version" : "0.002004",
          "Dist::Zilla::Plugin::TestRelease" : "5.020",
-         "Exporter" : "5.70",
+         "Dist::Zilla::Plugin::TravisYML" : "1.12",
+         "Dist::Zilla::PluginBundle::Prereqs" : "0.93",
          "ExtUtils::MakeMaker" : "6.98",
          "File::Spec" : "3.47",
          "File::Temp" : "0.2304",
@@ -216,11 +212,7 @@
          "Test::Pod" : "1.48",
          "Test::Pod::Coverage" : "1.10",
          "Test::Synopsis" : "0.11",
-         "XSLoader" : "0.17",
-         "strict" : "1.08",
-         "utf8" : "1.13",
-         "version" : "0.9909",
-         "warnings" : "1.23"
+         "version" : "0.9909"
       },
       "perl" : {
          "original" : "v5.20.0",
@@ -252,7 +244,7 @@
             "class" : "Dist::Zilla::Plugin::Git::NextVersion",
             "config" : {
                "Dist::Zilla::Plugin::Git::NextVersion" : {
-                  "first_version" : "0.001",
+                  "first_version" : "420",
                   "version_by_branch" : "1",
                   "version_regexp" : "(?^:^v(.+)$)"
                },
@@ -282,6 +274,31 @@
             "class" : "Dist::Zilla::Plugin::Prereqs::AuthorDeps",
             "name" : "Prereqs::AuthorDeps",
             "version" : "0.003"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::AutoPrereqs",
+            "name" : "@Prereqs/AutoPrereqs",
+            "version" : "5.020"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::MinimumPerl",
+            "name" : "@Prereqs/MinimumPerl",
+            "version" : "1.003"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::MinimumPrereqs",
+            "name" : "@Prereqs/MinimumPrereqs",
+            "version" : "0.93"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::PrereqsClean",
+            "name" : "@Prereqs/PrereqsClean",
+            "version" : "0.93"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::TravisYML",
+            "name" : "TravisYML",
+            "version" : "1.12"
          },
          {
             "class" : "Dist::Zilla::Plugin::CPANFile",
@@ -517,11 +534,6 @@
             "version" : "5.020"
          },
          {
-            "class" : "Dist::Zilla::Plugin::MinimumPerl",
-            "name" : "MinimumPerl",
-            "version" : "1.003"
-         },
-         {
             "class" : "Dist::Zilla::Plugin::Metadata",
             "name" : "Metadata",
             "version" : "3.03"
@@ -690,7 +702,8 @@
                      "Changes",
                      "dist.ini",
                      "Makefile.PL",
-                     "cpanfile"
+                     "cpanfile",
+                     ".travis.tml"
                   ],
                   "allow_dirty_match" : [],
                   "changelog" : "Changes"
@@ -726,7 +739,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "v1.000",
+                  "tag" : "v0.427",
                   "tag_format" : "v%v",
                   "tag_message" : "Tagged release %v",
                   "time_zone" : "local"
