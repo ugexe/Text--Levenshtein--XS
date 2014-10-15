@@ -1,6 +1,6 @@
 Revision history for Perl module Text::Levenshtein::XS
 
-0.43      2014-10-15 02:20:52-04:00 America/New_York
+0.43      2014-10-15 02:22:48-04:00 America/New_York
     - brackets in XS init for C89 compatability
 
 0.428     2014-10-14 22:44:32-04:00 America/New_York

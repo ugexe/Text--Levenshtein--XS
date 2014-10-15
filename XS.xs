@@ -16,7 +16,7 @@ xs_distance (arraySource, arrayTarget, maxDistance)
   AV *    arraySource
   AV *    arrayTarget
   SV *    maxDistance
-INIT:
+PPCODE:
 {
     unsigned int i,j,edits,*s,*t,*v0,*v1;
     unsigned int lenSource = av_len(arraySource)+1;
@@ -41,9 +41,7 @@ INIT:
 
     if (diff > mdx)
         XSRETURN_UNDEF;
-}
-PPCODE:
-{
+    
     Newx(s,  (lenSource + 1), unsigned int); // source
     Newx(t,  (lenTarget + 1), unsigned int); // target
     Newx(v0, (lenTarget + 1), unsigned int); // vector 0
