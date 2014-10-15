@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use 5.800;
+use 5.008009;
 
 use ExtUtils::MakeMaker ;
 
@@ -23,7 +23,7 @@ my %WriteMakefileArgs = (
   "TEST_REQUIRES" => {
     "File::Spec" => 0,
     "File::Temp" => 0,
-    "IO::Handle" => 0,
+    "IO::Handle" => "1.27_02",
     "IPC::Open3" => 0,
     "Test::More" => "0.88"
   },
@@ -37,7 +37,7 @@ my %WriteMakefileArgs = (
 my %FallbackPrereqs = (
   "File::Spec" => 0,
   "File::Temp" => 0,
-  "IO::Handle" => 0,
+  "IO::Handle" => "1.27_02",
   "IPC::Open3" => 0,
   "Test::More" => "0.88"
 );
