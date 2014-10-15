@@ -1,7 +1,10 @@
 Revision history for Perl module Text::Levenshtein::XS
 
 {{$NEXT}}
-
+    - Was wrong about the brackets. Switching back to regular INIT as it seemed to pass on a later build :/
+    - Update dist.ini TravisYML to support_builddir = 1
+    - (branch~1 error on TravisCI) .travis.yml add: git checkout $TRAVIS_BRANCH && git reset --hard $TRAVIS_COMMIT (thanks haarg)
+    
 0.43      2014-10-15 10:45:00-04:00 America/New_York
     - brackets in XS init for C89 compatability
 
