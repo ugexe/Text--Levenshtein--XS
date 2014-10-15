@@ -27,3 +27,4 @@ dll.exp
 *.tar
 releases/
 .gitnxtver_cache
+cpanfile

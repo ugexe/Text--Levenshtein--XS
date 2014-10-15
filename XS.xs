@@ -68,19 +68,13 @@ PPCODE:
 
             v1[j + 1] = MIN(MIN(v1[j] + 1, v0[j + 1] + 1), (v0[j] + ((s[i] == t[j]) ? 0 : 1)));
 
-            /* Check the current distance once we have reached the appropriate index */
+            /* Check the current distance once we have reached the appropriate index         */
             /* v1[0] == index of current distance of v1 (i.e. v1[v1[0]] == current distance) */
-            if( v1[0] == j ) {
-                if( lenTarget == lenSource && mdx < v1[v1[0]] ) {
-                    /* return undef if max distance has been exceeded by current lowest possible distance */
-                    undef = 1;
-                    break;
-                }
-                else if( j >= lenSource && mdx < (v1[v1[0]] + (MAX(diff,j) - MIN(diff,j) - 1)) ) {
-                    /* we can look at the length difference along with the current distance to determine a minimum distance */
-                    undef = 1;
-                    break;
-                }
+            /* We also take diff into account so we can guess if current distance + length   */
+            /* difference would push the total edit distance over the max distance           */
+            if( v1[0] == j && mdx < ((diff > v1[v1[0]]) ? (diff - v1[v1[0]]) : (v1[v1[0]] + diff)) ) {
+                undef = 1;
+                break;
             }
         }
 
