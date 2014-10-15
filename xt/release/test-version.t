@@ -8,7 +8,7 @@ BEGIN { eval "use Test::Version; 1;" or die $@; }
 my @imports = ( 'version_all_ok' );
 
 my $params = {
-    is_strict   => 0,
+    is_strict   => 1,
     has_version => 1,
 };
 
