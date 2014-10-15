@@ -703,7 +703,7 @@
                      "dist.ini",
                      "Makefile.PL",
                      "cpanfile",
-                     ".travis.tml"
+                     ".travis.yml"
                   ],
                   "allow_dirty_match" : [],
                   "changelog" : "Changes"

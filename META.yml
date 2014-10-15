@@ -492,7 +492,7 @@ x_Dist_Zilla:
             - dist.ini
             - Makefile.PL
             - cpanfile
-            - .travis.tml
+            - .travis.yml
           allow_dirty_match: []
           changelog: Changes
         Dist::Zilla::Role::Git::Repo:
