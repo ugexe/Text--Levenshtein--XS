@@ -16,7 +16,7 @@ xs_distance (arraySource, arrayTarget, maxDistance)
   AV *    arraySource
   AV *    arrayTarget
   SV *    maxDistance
-PREINIT:
+INIT:
     unsigned int i,j,edits,*s,*t,*v0,*v1;
     unsigned int lenSource = av_len(arraySource)+1;
     unsigned int lenTarget = av_len(arrayTarget)+1;
