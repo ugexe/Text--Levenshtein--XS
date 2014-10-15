@@ -15,7 +15,7 @@ use Text::Levenshtein::XS qw/distance/;
 
 subtest 'distance with no max distance' => sub { 
     is( distance('four','for'),             1,      'test distance insertion');
-    is( distance('four','four'),            0, '     test distance matching');
+    is( distance('four','four'),            0,      'test distance matching');
     is( distance('four','fourth'),          2,      'test distance deletion');
     is( distance('four','fuor'),            2,      'test distance (no) transposition');
     is( distance('four','fxxr'),            2,      'test distance substitution');
