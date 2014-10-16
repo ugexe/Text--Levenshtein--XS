@@ -27,10 +27,13 @@ INIT:
     unsigned int diff = MAX(lenSource , lenTarget) - MIN(lenSource, lenTarget);
     unsigned int undef = 0;
     SV* elem;
-
+PPCODE:
+{
+    /* bail out before memory allocation and calculations if possible */
     if(lenSource == 0 || lenTarget == 0) {
         if( md != 0 && MAX(lenSource, lenTarget) > md ) {
-            XSRETURN_UNDEF;
+            XPUSHs(sv_2mortal(&PL_sv_undef));
+            XSRETURN(1);
         }
         else {
             XPUSHs(sv_2mortal(newSVuv( MAX(lenSource, lenTarget) )));
@@ -38,10 +41,11 @@ INIT:
         }
     }
 
-    if (diff > mdx)
-        XSRETURN_UNDEF;
-PPCODE:
-{
+    if (md != 0 && diff > mdx) {
+        XPUSHs(sv_2mortal(&PL_sv_undef));
+        XSRETURN(1);
+    }
+
     Newx(s,  (lenSource + 1), unsigned int); // source
     Newx(t,  (lenTarget + 1), unsigned int); // target
     Newx(v0, (lenTarget + 1), unsigned int); // vector 0
@@ -92,4 +96,4 @@ PPCODE:
     Safefree(v0);
     Safefree(v1);
 } /* PPCODE */
-
+    
