@@ -52,8 +52,6 @@ x_BuiltWith:
     Dist::Zilla::Plugin::Git::Commit: '2.025'
     Dist::Zilla::Plugin::Git::CommitBuild: '2.025'
     Dist::Zilla::Plugin::Git::NextVersion: '2.025'
-    Dist::Zilla::Plugin::Git::Push: '2.025'
-    Dist::Zilla::Plugin::Git::Tag: '2.025'
     Dist::Zilla::Plugin::License: '5.020'
     Dist::Zilla::Plugin::MakeMaker: '5.020'
     Dist::Zilla::Plugin::Manifest: '5.020'
@@ -93,7 +91,6 @@ x_BuiltWith:
     Dist::Zilla::Plugin::Test::Version: '0.002004'
     Dist::Zilla::Plugin::TestRelease: '5.020'
     Dist::Zilla::Plugin::TravisYML: '1.12'
-    Dist::Zilla::Plugin::UploadToCPAN: '5.020'
     Dist::Zilla::PluginBundle::Prereqs: '0.93'
     ExtUtils::MakeMaker: '6.98'
     File::Spec: '3.47'
@@ -456,10 +453,6 @@ x_Dist_Zilla:
       name: RunExtraTests
       version: '0.022'
     -
-      class: Dist::Zilla::Plugin::UploadToCPAN
-      name: UploadToCPAN
-      version: '5.020'
-    -
       class: Dist::Zilla::Plugin::ArchiveRelease
       name: ArchiveRelease
       version: '4.00'
@@ -497,36 +490,11 @@ x_Dist_Zilla:
           build_root: ~
           message: 'Build of release v%v%t (%h on %b)'
           multiple_inheritance: '0'
-          release_branch: release
+          release_branch: build/%b
           release_message: 'Build of release v%v%t (%h on %b)'
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
       name: Git::CommitBuild
-      version: '2.025'
-    -
-      class: Dist::Zilla::Plugin::Git::Tag
-      config:
-        Dist::Zilla::Plugin::Git::Tag:
-          branch: ~
-          signed: '0'
-          tag: v0.44
-          tag_format: v%v
-          tag_message: 'Tagged release %v'
-          time_zone: local
-        Dist::Zilla::Role::Git::Repo:
-          repo_root: .
-      name: Git::Tag
-      version: '2.025'
-    -
-      class: Dist::Zilla::Plugin::Git::Push
-      config:
-        Dist::Zilla::Plugin::Git::Push:
-          push_to:
-            - origin
-          remotes_must_exist: '1'
-        Dist::Zilla::Role::Git::Repo:
-          repo_root: .
-      name: Git::Push
       version: '2.025'
     -
       class: Dist::Zilla::Plugin::ReportPhase

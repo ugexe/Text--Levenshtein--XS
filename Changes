@@ -1,6 +1,6 @@
 Revision history for Perl module Text::Levenshtein::XS
 
-0.44      2014-10-16 00:07:03-04:00 America/New_York
+0.44      2014-10-16 00:23:59-04:00 America/New_York
     - Was wrong about the brackets. Switching back to regular INIT as it seemed to pass on a later build :/
     - Update dist.ini TravisYML to support_builddir = 1
     - (branch~1 error on TravisCI) .travis.yml add: git checkout $TRAVIS_BRANCH && git reset --hard $TRAVIS_COMMIT (thanks haarg)
