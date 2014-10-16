@@ -63,7 +63,6 @@ on 'develop' => sub {
   requires "Dist::Zilla::Plugin::Test::Compile" => "0";
   requires "Dist::Zilla::Plugin::Test::DistManifest" => "0";
   requires "Dist::Zilla::Plugin::Test::MinimumVersion" => "0";
-  requires "Dist::Zilla::Plugin::Test::Perl::Critic" => "0";
   requires "Dist::Zilla::Plugin::Test::Portability" => "0";
   requires "Dist::Zilla::Plugin::Test::Synopsis" => "0";
   requires "Dist::Zilla::Plugin::Test::Version" => "0";

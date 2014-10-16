@@ -76,7 +76,6 @@
             "Dist::Zilla::Plugin::Test::Compile" : "0",
             "Dist::Zilla::Plugin::Test::DistManifest" : "0",
             "Dist::Zilla::Plugin::Test::MinimumVersion" : "0",
-            "Dist::Zilla::Plugin::Test::Perl::Critic" : "0",
             "Dist::Zilla::Plugin::Test::Portability" : "0",
             "Dist::Zilla::Plugin::Test::Synopsis" : "0",
             "Dist::Zilla::Plugin::Test::Version" : "0",
@@ -183,7 +182,6 @@
          "Dist::Zilla::Plugin::Test::Compile" : "2.048",
          "Dist::Zilla::Plugin::Test::DistManifest" : "2.000004",
          "Dist::Zilla::Plugin::Test::MinimumVersion" : "2.000005",
-         "Dist::Zilla::Plugin::Test::Perl::Critic" : "2.112410",
          "Dist::Zilla::Plugin::Test::Portability" : "2.000005",
          "Dist::Zilla::Plugin::Test::Synopsis" : "2.000005",
          "Dist::Zilla::Plugin::Test::Version" : "0.002004",
@@ -331,11 +329,6 @@
             },
             "name" : "Test::Compile",
             "version" : "2.048"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Test::Perl::Critic",
-            "name" : "Test::Perl::Critic",
-            "version" : "2.112410"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::DistManifest",
@@ -695,10 +688,10 @@
                "Dist::Zilla::Plugin::Git::CommitBuild" : {
                   "branch" : "build/%b",
                   "build_root" : null,
-                  "message" : "Build of release v%v%t (%h on %b)",
+                  "message" : "Build: v%v%t (%h on %b)",
                   "multiple_inheritance" : 0,
-                  "release_branch" : "build/%b",
-                  "release_message" : "Build of release v%v%t (%h on %b)"
+                  "release_branch" : "release",
+                  "release_message" : "Release: v%v%t (%h on %b)"
                },
                "Dist::Zilla::Role::Git::Repo" : {
                   "repo_root" : "."

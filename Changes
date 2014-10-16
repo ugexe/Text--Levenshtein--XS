@@ -1,5 +1,7 @@
 Revision history for Perl module Text::Levenshtein::XS
 
+0.44      2014-10-16 00:54:30-04:00 America/New_York
+
 0.44      2014-10-16 00:25:19-04:00 America/New_York
     - Was wrong about the brackets. Switching back to regular INIT as it seemed to pass on a later build :/
     - Update dist.ini TravisYML to support_builddir = 1
