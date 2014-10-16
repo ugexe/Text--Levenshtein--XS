@@ -7,7 +7,7 @@
 # the same terms as the Perl 5 programming language system itself.
 #
 package Text::Levenshtein::XS;
-$Text::Levenshtein::XS::VERSION = '0.44'; # TRIAL
+$Text::Levenshtein::XS::VERSION = '0.45'; # TRIAL
 use 5.008;
 use strict;
 use warnings FATAL => 'all';
@@ -38,7 +38,7 @@ Text::Levenshtein::XS - Calculate edit distance based on insertion, deletion, su
 
 =head1 VERSION
 
-version 0.44
+version 0.45
 
 =head1 SYNOPSIS
 
