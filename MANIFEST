@@ -6,7 +6,6 @@ META.json
 META.yml
 Makefile.PL
 README
-README.mkdn
 XS.xs
 cpanfile
 dist.ini
