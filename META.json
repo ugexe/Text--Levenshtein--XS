@@ -112,7 +112,7 @@
          "version" : "0.44"
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/ugexe/Text--Levenshtein--XS/issues"
@@ -819,7 +819,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "0"
+            "is_trial" : "1"
          },
          "version" : "5.020"
       }
