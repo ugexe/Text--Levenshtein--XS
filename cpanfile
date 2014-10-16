@@ -30,6 +30,7 @@ on 'develop' => sub {
   requires "Dist::Zilla::Plugin::CheckPrereqsIndexed" => "0";
   requires "Dist::Zilla::Plugin::ConfirmRelease" => "0";
   requires "Dist::Zilla::Plugin::CopyFilesFromBuild" => "0";
+  requires "Dist::Zilla::Plugin::CopyFilesFromRelease" => "0";
   requires "Dist::Zilla::Plugin::GenerateFile" => "0";
   requires "Dist::Zilla::Plugin::Git::Check" => "0";
   requires "Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch" => "0";
