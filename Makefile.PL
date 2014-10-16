@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use 5.008009;
+use 5.008;
 
 use ExtUtils::MakeMaker ;
 
@@ -19,15 +19,19 @@ my %WriteMakefileArgs = (
   "EXE_FILES" => [],
   "LICENSE" => "perl",
   "NAME" => "Text::Levenshtein::XS",
-  "PREREQ_PM" => {},
-  "TEST_REQUIRES" => {
-    "File::Spec" => 0,
-    "File::Temp" => 0,
-    "IO::Handle" => "1.27_02",
-    "IPC::Open3" => 0,
-    "Test::More" => "0.88"
+  "PREREQ_PM" => {
+    "Exporter" => 0,
+    "XSLoader" => 0,
+    "strict" => 0,
+    "warnings" => 0
   },
-  "VERSION" => "0.46",
+  "TEST_REQUIRES" => {
+    "ExtUtils::MakeMaker" => 0,
+    "File::Spec" => 0,
+    "Test::More" => 0,
+    "utf8" => 0
+  },
+  "VERSION" => "0.47",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -35,11 +39,14 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Exporter" => 0,
+  "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
-  "File::Temp" => 0,
-  "IO::Handle" => "1.27_02",
-  "IPC::Open3" => 0,
-  "Test::More" => "0.88"
+  "Test::More" => 0,
+  "XSLoader" => 0,
+  "strict" => 0,
+  "utf8" => 0,
+  "warnings" => 0
 );
 
 

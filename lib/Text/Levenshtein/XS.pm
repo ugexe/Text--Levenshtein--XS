@@ -1,5 +1,7 @@
 package Text::Levenshtein::XS;
 
+our $VERSION = '0.47';
+
 use 5.008;
 use strict;
 use warnings FATAL => 'all';
