@@ -108,10 +108,10 @@
    "provides" : {
       "Text::Levenshtein::XS" : {
          "file" : "lib/Text/Levenshtein/XS.pm",
-         "version" : "0.45"
+         "version" : "0.47"
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/ugexe/Text--Levenshtein--XS/issues"
@@ -126,7 +126,7 @@
          "web" : "https://github.com/ugexe/Text--Levenshtein--XS"
       }
    },
-   "version" : "0.45",
+   "version" : "0.47",
    "x_BuiltWith" : {
       "failures" : {
          "Dist::Zilla::Plugin::ReportPhase" : "Module::MetaData could not parse a version from /home/nickl/perl5/perlbrew/perls/perl-5.20.0/lib/site_perl/5.20.0/Dist/Zilla/Plugin/ReportPhase.pm"
@@ -671,7 +671,7 @@
                "Dist::Zilla::Plugin::Git::Tag" : {
                   "branch" : null,
                   "signed" : 0,
-                  "tag" : "v0.45",
+                  "tag" : "v0.47",
                   "tag_format" : "v%v",
                   "tag_message" : "v%v",
                   "time_zone" : "local"
@@ -812,7 +812,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "1"
+            "is_trial" : "0"
          },
          "version" : "5.020"
       }

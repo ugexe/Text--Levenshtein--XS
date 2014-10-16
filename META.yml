@@ -23,7 +23,7 @@ no_index:
 provides:
   Text::Levenshtein::XS:
     file: lib/Text/Levenshtein/XS.pm
-    version: '0.45'
+    version: '0.47'
 requires:
   perl: '5.008009'
 resources:
@@ -31,7 +31,7 @@ resources:
   homepage: https://metacpan.org/release/Text-Levenshtein-XS
   license: http://dev.perl.org/licenses/
   repository: https://github.com/ugexe/Text--Levenshtein--XS
-version: '0.45'
+version: '0.47'
 x_BuiltWith:
   failures:
     Dist::Zilla::Plugin::ReportPhase: 'Module::MetaData could not parse a version from /home/nickl/perl5/perlbrew/perls/perl-5.20.0/lib/site_perl/5.20.0/Dist/Zilla/Plugin/ReportPhase.pm'
@@ -470,7 +470,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Tag:
           branch: ~
           signed: '0'
-          tag: v0.45
+          tag: v0.47
           tag_format: v%v
           tag_message: v%v
           time_zone: local
@@ -577,7 +577,7 @@ x_Dist_Zilla:
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
-      is_trial: '1'
+      is_trial: '0'
     version: '5.020'
 x_contributors:
   - 'Nick <nlogan@gmail.com>'
