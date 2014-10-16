@@ -31,7 +31,6 @@
             "Dist::Zilla::Plugin::AutoPrereqs" : "0",
             "Dist::Zilla::Plugin::Bugtracker" : "0",
             "Dist::Zilla::Plugin::CPANFile" : "0",
-            "Dist::Zilla::Plugin::CheckChangesHasContent" : "0",
             "Dist::Zilla::Plugin::CheckPrereqsIndexed" : "0",
             "Dist::Zilla::Plugin::Clean" : "0",
             "Dist::Zilla::Plugin::ConfirmRelease" : "0",
@@ -138,7 +137,6 @@
          "Dist::Zilla::Plugin::AutoPrereqs" : "5.020",
          "Dist::Zilla::Plugin::Bugtracker" : "1.111080",
          "Dist::Zilla::Plugin::CPANFile" : "5.020",
-         "Dist::Zilla::Plugin::CheckChangesHasContent" : "0.006",
          "Dist::Zilla::Plugin::CheckPrereqsIndexed" : "0.012",
          "Dist::Zilla::Plugin::Clean" : "0.07",
          "Dist::Zilla::Plugin::ConfirmRelease" : "5.020",
@@ -701,11 +699,6 @@
             },
             "name" : "@Git/Push",
             "version" : "2.025"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::CheckChangesHasContent",
-            "name" : "CheckChangesHasContent",
-            "version" : "0.006"
          },
          {
             "class" : "Dist::Zilla::Plugin::TestRelease",

@@ -41,7 +41,6 @@ x_BuiltWith:
     Dist::Zilla::Plugin::AutoPrereqs: '5.020'
     Dist::Zilla::Plugin::Bugtracker: '1.111080'
     Dist::Zilla::Plugin::CPANFile: '5.020'
-    Dist::Zilla::Plugin::CheckChangesHasContent: '0.006'
     Dist::Zilla::Plugin::CheckPrereqsIndexed: '0.012'
     Dist::Zilla::Plugin::Clean: '0.07'
     Dist::Zilla::Plugin::ConfirmRelease: '5.020'
@@ -491,10 +490,6 @@ x_Dist_Zilla:
           repo_root: .
       name: '@Git/Push'
       version: '2.025'
-    -
-      class: Dist::Zilla::Plugin::CheckChangesHasContent
-      name: CheckChangesHasContent
-      version: '0.006'
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: TestRelease

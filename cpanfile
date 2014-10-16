@@ -18,7 +18,6 @@ on 'develop' => sub {
   requires "Dist::Zilla::Plugin::AutoPrereqs" => "0";
   requires "Dist::Zilla::Plugin::Bugtracker" => "0";
   requires "Dist::Zilla::Plugin::CPANFile" => "0";
-  requires "Dist::Zilla::Plugin::CheckChangesHasContent" => "0";
   requires "Dist::Zilla::Plugin::CheckPrereqsIndexed" => "0";
   requires "Dist::Zilla::Plugin::Clean" => "0";
   requires "Dist::Zilla::Plugin::ConfirmRelease" => "0";
