@@ -689,7 +689,7 @@
                "Dist::Zilla::Plugin::Git::Push" : {
                   "push_to" : [
                      "origin",
-                     "build/dev"
+                     "build/testing"
                   ],
                   "remotes_must_exist" : 1
                },

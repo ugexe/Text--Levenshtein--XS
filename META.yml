@@ -484,7 +484,7 @@ x_Dist_Zilla:
         Dist::Zilla::Plugin::Git::Push:
           push_to:
             - origin
-            - build/dev
+            - build/testing
           remotes_must_exist: '1'
         Dist::Zilla::Role::Git::Repo:
           repo_root: .
