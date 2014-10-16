@@ -6,6 +6,8 @@ META.yml
 Makefile.PL
 README
 XS.xs
+cpanfile
+dist.ini
 examples/benchmark.pl
 examples/fuzzy_name_search.pl
 lib/Text/Levenshtein/XS.pm
