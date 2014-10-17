@@ -6,6 +6,10 @@
 
 Text::Levenshtein::XS - Calculate edit distance based on insertion, deletion, substitution, and transposition
 
+=head1 VERSION
+
+version 0.470
+
 =head1 SYNOPSIS
 
     use Text::Levenshtein::XS qw/distance/;
@@ -81,58 +85,9 @@ Please report bugs to:
 
 L<https://github.com/ugexe/Text--Levenshtein--XS/issues>
 
-=head1 AVAILABILITY
-
-The project homepage is L<https://github.com/SineSwiper/Text--Levenshtein--XS>.
-
-The latest version of this module is available from the Comprehensive Perl
-Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you, or see L<https://metacpan.org/module/Text::Levenshtein::XS/>.
-
-=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
-
-=head1 SUPPORT
-
-=head2 Internet Relay Chat
-
-You can get live help by using IRC ( Internet Relay Chat ). If you don't know what IRC is,
-please read this excellent guide: L<http://en.wikipedia.org/wiki/Internet_Relay_Chat>. Please
-be courteous and patient when talking to us, as we might be busy or sleeping! You can join
-those networks/channels and get help:
-
-=over 4
-
-=item *
-
-irc.perl.org
-
-You can connect to the server at 'irc.perl.org' and talk to this person for help: SineSwiper.
-
-=back
-
-=head2 Bugs / Feature Requests
-
-Please report any bugs or feature requests via L<https://github.com/SineSwiper/Text--Levenshtein--XS/issues>.
-
 =head1 AUTHOR
 
 ugexe <ugexe@cpan.org>
-
-=head1 CONTRIBUTORS
-
-=for stopwords Nick ugexe
-
-=over 4
-
-=item *
-
-Nick <nlogan@gmail.com>
-
-=item *
-
-ugexe <nlogan@gmail.com>
-
-=back
 
 =head1 COPYRIGHT AND LICENSE
 
