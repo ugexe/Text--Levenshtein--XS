@@ -1,0 +1,555 @@
+Revision History for Text-Levenshtein-XS
+========================================
+
+v0.470 2014-10-17
+-----------------
+
+[b464bae]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-17 01:18:17 -0400 (12 hours ago)
+
+more travis tests
+
+[e5a0b5d]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 15:35:35 -0400 (22 hours ago)
+
+testing
+
+[9e13d6b]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 15:07:20 -0400 (22 hours ago)
+
+testing
+
+[2306cad]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 14:57:30 -0400 (22 hours ago)
+
+testing
+
+[87abd4e]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 14:39:41 -0400 (23 hours ago)
+
+testing
+
+[5ca7f5a]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 14:23:17 -0400 (23 hours ago)
+
+changes
+
+[227e3b9]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 14:19:29 -0400 (23 hours ago)
+
+more travis setups
+
+[6a43ffb]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 14:15:09 -0400 (23 hours ago)
+
+trying bbyrds dz bundle for travisyml
+
+[3abe3a3]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 12:16:34 -0400 (25 hours ago)
+
+changed to dagolden's based dist.ini
+
+
+v0.46 2014-10-16
+----------------
+
+[1e163b5]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 02:20:23 -0400 (35 hours ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.46
+
+
+v0.45 2014-10-16
+----------------
+
+[bffb775]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 02:17:26 -0400 (35 hours ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.45
+
+
+v0.44 2014-10-16
+----------------
+
+[e8b9652]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 02:15:17 -0400 (35 hours ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.44
+
+[cf841eb]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 01:32:41 -0400 (2 days ago)
+
+testing
+
+[b566d73]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 01:29:02 -0400 (2 days ago)
+
+testing
+
+[ea785b4]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 01:12:46 -0400 (2 days ago)
+
+more travis tests
+
+[3313e8f]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-16 00:26:09 -0400 (2 days ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.44
+
+    - Was wrong about the brackets. Switching back to regular INIT as it seemed to pass on a later build :/
+    - Update dist.ini TravisYML to support_builddir = 1
+    - (branch~1 error on TravisCI) .travis.yml add: git checkout $TRAVIS_BRANCH && git reset --hard $TRAVIS_COMMIT (thanks haarg)
+
+[a45d8b1]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 15:49:47 -0400 (2 days ago)
+
+mkdir updated
+
+[fca9306]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 15:40:51 -0400 (2 days ago)
+
+try manually creating build dir
+
+[875410a]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 15:26:17 -0400 (2 days ago)
+
+experimenting with build=
+
+[5405e00]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 15:16:34 -0400 (2 days ago)
+
+more experiments
+
+[f39d279]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 14:55:46 -0400 (2 days ago)
+
+remove prunecruft to test BUILD=1
+
+[e329f09]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 14:42:59 -0400 (2 days ago)
+
+added perl list back
+
+[8374bef]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 14:39:50 -0400 (2 days ago)
+
+revert back to default BUILD
+
+[d63e563]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 14:36:54 -0400 (2 days ago)
+
+again
+
+[2b2de16]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 14:32:54 -0400 (2 days ago)
+
+again
+
+[f569869]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 14:22:14 -0400 (2 days ago)
+
+try perlbrew switching for 5.8
+
+[d096af7]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 13:17:33 -0400 (2 days ago)
+
+TravisCI updates for branch checkout and going back to INIT block in xs
+
+[fe8c75e]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 12:35:55 -0400 (2 days ago)
+
+cpanm -v to figure out why mojibake plugin fails to install
+
+[50d0248]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 12:20:57 -0400 (2 days ago)
+
+fix incorrect branch~1 error from travis
+
+[cc67db9]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 12:09:49 -0400 (2 days ago)
+
+travis didnt get last hook
+
+[5ae0ace]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 12:00:37 -0400 (2 days ago)
+
+test travis.yml with TravisYML support_builddir = 1
+
+[44dd835]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 11:50:09 -0400 (2 days ago)
+
+try to push threaded perls into travis.yml from dist.ini
+
+[2f7fe93]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 11:43:50 -0400 (2 days ago)
+
+travis-ci/dist::zilla config foolery
+
+
+v0.43 2014-10-15
+----------------
+
+[d338cb9]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 10:45:36 -0400 (2 days ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.43
+
+    - brackets in XS init for C89 compatability
+
+[fc28efc]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-15 02:17:56 -0400 (2 days ago)
+
+C89
+
+
+v0.428 2014-10-14
+-----------------
+
+[8bc325b]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 22:45:09 -0400 (3 days ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.428
+
+    - Removed travis-ci/coveralls badges until I figure out Dist::Zilla better
+
+[ff4e46e]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 22:42:47 -0400 (3 days ago)
+
+Removed travis-ci/coveralls badges until I figure out dist::zilla stuff better
+
+
+v0.427 2014-10-14
+-----------------
+
+[d8a1992]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 22:32:21 -0400 (3 days ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.427
+
+    - Update .travis.yml to build/test properly with Dist::Zilla
+
+[047a687]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 22:25:22 -0400 (3 days ago)
+
+again
+
+[2157e2c]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 22:14:56 -0400 (3 days ago)
+
+again
+
+[ef15a18]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 22:10:50 -0400 (3 days ago)
+
+again
+
+[a542e0e]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 22:07:00 -0400 (3 days ago)
+
+again
+
+[3f70ac1]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 22:03:46 -0400 (3 days ago)
+
+again
+
+[7a9fe5d]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 21:55:10 -0400 (3 days ago)
+
+again
+
+[66249f6]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 21:42:39 -0400 (3 days ago)
+
+again
+
+[4c7e0e1]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 21:29:14 -0400 (3 days ago)
+
+again
+
+[59138af]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 21:21:03 -0400 (3 days ago)
+
+again
+
+[05d06a7]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 20:54:46 -0400 (3 days ago)
+
+again
+
+[c6715bf]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 20:38:49 -0400 (3 days ago)
+
+again
+
+[ad1c3d1]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 19:54:48 -0400 (3 days ago)
+
+again
+
+[36a2c84]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 19:38:07 -0400 (3 days ago)
+
+again
+
+[aae01c2]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 19:31:52 -0400 (3 days ago)
+
+again
+
+[0a73a0e]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 19:29:56 -0400 (3 days ago)
+
+again
+
+[93a12f2]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 19:02:47 -0400 (3 days ago)
+
+again
+
+[826f075]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 18:54:07 -0400 (3 days ago)
+
+again
+
+[06082bf]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 18:47:31 -0400 (3 days ago)
+
+almost
+
+[0138ab4]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 18:45:49 -0400 (3 days ago)
+
+almost
+
+[4bc010e]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 18:30:20 -0400 (3 days ago)
+
+again
+
+[eba00bb]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 18:10:49 -0400 (3 days ago)
+
+again
+
+[8c7b8b7]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 18:07:23 -0400 (3 days ago)
+
+again
+
+[0e7a435]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 18:04:22 -0400 (3 days ago)
+
+again
+
+[81fd871]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 17:56:05 -0400 (3 days ago)
+
+again
+
+[f2193df]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 17:43:18 -0400 (3 days ago)
+
+again
+
+[333349a]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 17:32:52 -0400 (3 days ago)
+
+try authordeps with cpan-install again
+
+[1af08e3]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 17:20:44 -0400 (3 days ago)
+
+ugh
+
+[c5f9c9b]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 17:11:47 -0400 (3 days ago)
+
+get authordeps
+
+[46e00f9]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 17:04:53 -0400 (3 days ago)
+
+more travis-ci/distzilla
+
+[ab1cdfa]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 16:57:39 -0400 (3 days ago)
+
+check if problem is git::nextversion or contributorsfromgit
+
+[05ebf06]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 16:45:36 -0400 (3 days ago)
+
+dist:zilla/travis-ci again. Testing without git plugins before release
+
+[645e838]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 16:29:32 -0400 (3 days ago)
+
+more dist::zilla/travis-ci
+
+[28b05aa]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 15:47:37 -0400 (3 days ago)
+
+dzil/travis-ci updates
+
+
+v0.426 2014-10-14
+-----------------
+
+[ee459db]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 15:19:48 -0400 (3 days ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.426
+
+    - Dist::Zilla
+    - New max distance algorithm bug fix (github issue #7). Caught by nglenn@cpan.org
+
+
+v0.425 2014-10-14
+-----------------
+
+[5d381c0]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 01:43:54 -0400 (4 days ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.425
+
+    - Dist::Zilla test
+
+
+v0.424 2014-10-14
+-----------------
+
+[40e2e7a]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 01:40:52 -0400 (4 days ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.424
+
+    - Dist::Zilla test
+
+
+v0.423 2014-10-14
+-----------------
+
+[db53f6a]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 01:26:51 -0400 (4 days ago)
+
+more dzilla tinkering
+
+[03902db]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 01:11:12 -0400 (4 days ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.423
+
+    - Dist::Zilla test
+
+[dfadbab]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-14 01:08:15 -0400 (4 days ago)
+
+New CPAN release of Text-Levenshtein-XS - v0.423
+
+    - Dist::Zilla test
+
+[49ac992]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-13 22:05:46 -0400 (4 days ago)
+
+removed dynaloader
+
+
+v0.422 2014-10-13
+-----------------
+
+[c2b9330]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-13 22:02:10 -0400 (4 days ago)
+
+playing with dist zilla
+
+[1b2bc45]
+* Author: Nick <nlogan@gmail.com>
+* Date:   2014-10-13 21:39:11 -0400 (4 days ago)
+
+.gitignore
+
+
+===================================
+End of changes in the last 365 days
+===================================
