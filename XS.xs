@@ -52,8 +52,6 @@ PPCODE:
     }
 
     for (i=0; i < lenSource; i++) {
-        if ( undef )
-            break;
 
         elem = sv_2mortal(av_shift(arraySource));
         s[i] = SvUV((SV *)elem);
@@ -72,17 +70,22 @@ PPCODE:
             /* v1[0] == index of current distance of v1 (i.e. v1[v1[0]] == current distance) */
             /* We also take diff into account so we can guess if current distance + length   */
             /* difference would push the total edit distance over the max distance           */
-            if( v1[0] == j && mdx < ((diff > v1[v1[0]]) ? (diff - v1[v1[0]]) : (v1[v1[0]] + diff)) ) {
+            if( v1[0] == j && (mdx+1) < ((diff > v1[j]) ? (diff - v1[j]) : (diff + v1[j])) ) {
                 undef = 1;
                 break;
             }
         }
 
+
         /* copy v1 to v0. no need to copy the array on the last iteration */
-        if( i < lenSource ) 
+        if( i < lenSource ) {
             for (j = 0; j < (lenTarget + 1); j++) 
                 v0[j] = v1[j];
+        }
     }
+
+    if( md > 0 && md < v1[lenTarget] )
+        undef = 1;
 
     /* don't check md here so that if something is wrong with the earlier short circuit the tests will catch it */
     XPUSHs(sv_2mortal( (undef == 1) ? &PL_sv_undef : newSVuv(v1[lenTarget]) ));
