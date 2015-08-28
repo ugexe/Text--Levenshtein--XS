@@ -7,7 +7,7 @@ require Exporter;
 
 @Text::Levenshtein::XS::ISA       = qw/Exporter/;
 @Text::Levenshtein::XS::EXPORT_OK = qw/distance/;
-$Text::Levenshtein::XS::VERSION   = 0.500;
+$Text::Levenshtein::XS::VERSION   = 0.501;
 
 eval {
     require XSLoader;

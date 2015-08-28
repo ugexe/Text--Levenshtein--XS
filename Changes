@@ -1,6 +1,7 @@
 Revision history for Perl module Text::Levenshtein::XS
 
 {{$NEXT}}
+    - Manually add in version (Forgot how to use dzil + plugins)
 
 0.500     2015-08-28 13:56:18-04:00 America/New_York
     - Fix max distance bug when within 1 of max distance:
