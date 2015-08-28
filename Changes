@@ -2,6 +2,10 @@ Revision history for Perl module Text::Levenshtein::XS
 
 {{$NEXT}}
 
+0.500     2015-08-28 13:56:18-04:00 America/New_York
+    - Fix max distance bug when within 1 of max distance:
+    https://github.com/ugexe/Text--Levenshtein--XS/issues/10
+
 0.427     2014-10-14 22:31:47-04:00 America/New_York
     - Update .travis.yml to build/test properly with Dist::Zilla
 
