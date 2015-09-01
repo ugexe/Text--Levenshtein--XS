@@ -1,6 +1,9 @@
 Revision history for Perl module Text::Levenshtein::XS
 
 {{$NEXT}}
+    - Fix max distance bug, iimog++
+
+0.501     2015-08-28 14:08:32-04:00 America/New_York
     - Manually add in version (Forgot how to use dzil + plugins)
 
 0.500     2015-08-28 13:56:18-04:00 America/New_York

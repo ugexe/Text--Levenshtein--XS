@@ -52,6 +52,8 @@ PPCODE:
     }
 
     for (i=0; i < lenSource; i++) {
+        if( undef > 0 )
+            break;
 
         elem = sv_2mortal(av_shift(arraySource));
         s[i] = SvUV((SV *)elem);
@@ -70,10 +72,10 @@ PPCODE:
             /* v1[0] == index of current distance of v1 (i.e. v1[v1[0]] == current distance) */
             /* We also take diff into account so we can guess if current distance + length   */
             /* difference would push the total edit distance over the max distance           */
-            if( v1[0] == j && (mdx+1) < ((diff > v1[j]) ? (diff - v1[j]) : (diff + v1[j])) ) {
-                undef = 1;
-                break;
-            }
+            if( v1[0] == j )
+                if( mdx < ((diff > v1[j]) ? (diff - v1[j]) : (diff + v1[j])) )
+                    if( mdx > v1[j] )
+                        undef = 1;
         }
 
 

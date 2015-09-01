@@ -73,6 +73,7 @@ subtest 'Testing previous bugs/issues' => sub {
 
     is( distance('ACGTAG', 'AGTAG', 2), 1,     'iimog https://github.com/ugexe/Text--Levenshtein--XS/issues/10' );
     is( distance('ACGTAG', 'TCGG',  2), undef, 'iimog https://github.com/ugexe/Text--Levenshtein--XS/issues/10' );
+    is( distance('ACGTAG', 'AGTAG', 1), 1,     'iimog https://github.com/ugexe/Text--Levenshtein--XS/issues/11' );
 };
 
 # Not quite supported yet
